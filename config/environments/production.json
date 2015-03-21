@@ -1,0 +1,3 @@
+{
+    "EVENT_SERVICE_URL": "/api/kubernetes/events"
+}

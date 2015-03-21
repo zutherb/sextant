@@ -1,0 +1,275 @@
+{
+  "kind": "ReplicationControllerList",
+  "creationTimestamp": null,
+  "selfLink": "/api/v1beta2/replicationControllers?namespace=",
+  "resourceVersion": 6790,
+  "apiVersion": "v1beta2",
+  "items": [
+    {
+      "id": "cart",
+      "uid": "c3c6ceca-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/replicationControllers/cart?namespace=default",
+      "resourceVersion": 6585,
+      "namespace": "default",
+      "desiredState": {
+        "replicas": 2,
+        "replicaSelector": {
+          "name": "cart"
+        },
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "v1beta2",
+              "id": "",
+              "volumes": null,
+              "containers": [
+                {
+                  "name": "cart",
+                  "image": "zutherb/cart-service",
+                  "ports": [
+                    {
+                      "containerPort": 18100,
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "resources": {},
+                  "terminationMessagePath": "/dev/termination-log",
+                  "imagePullPolicy": "PullIfNotPresent",
+                  "capabilities": {}
+                }
+              ],
+              "restartPolicy": {
+                "always": {}
+              },
+              "dnsPolicy": "ClusterFirst"
+            }
+          },
+          "labels": {
+            "name": "cart",
+            "uses": "redis"
+          }
+        }
+      },
+      "currentState": {
+        "replicas": 2,
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "",
+              "id": "",
+              "volumes": null,
+              "containers": null,
+              "restartPolicy": {}
+            }
+          }
+        }
+      },
+      "labels": {
+        "name": "cart",
+        "role": "backend"
+      }
+    },
+    {
+      "id": "catalog",
+      "uid": "c3d8bf46-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/replicationControllers/catalog?namespace=default",
+      "resourceVersion": 6583,
+      "namespace": "default",
+      "desiredState": {
+        "replicas": 3,
+        "replicaSelector": {
+          "name": "catalog"
+        },
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "v1beta2",
+              "id": "",
+              "volumes": null,
+              "containers": [
+                {
+                  "name": "catalog",
+                  "image": "zutherb/catalog-frontend",
+                  "ports": [
+                    {
+                      "hostPort": 80,
+                      "containerPort": 80,
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "env": [
+                    {
+                      "name": "CHECKOUT_DESIGN",
+                      "value": "standard"
+                    }
+                  ],
+                  "resources": {},
+                  "terminationMessagePath": "/dev/termination-log",
+                  "imagePullPolicy": "PullIfNotPresent",
+                  "capabilities": {}
+                }
+              ],
+              "restartPolicy": {
+                "always": {}
+              },
+              "dnsPolicy": "ClusterFirst"
+            }
+          },
+          "labels": {
+            "name": "catalog"
+          }
+        }
+      },
+      "currentState": {
+        "replicas": 3,
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "",
+              "id": "",
+              "volumes": null,
+              "containers": null,
+              "restartPolicy": {}
+            }
+          }
+        }
+      },
+      "labels": {
+        "name": "catalog",
+        "role": "frontend"
+      }
+    },
+    {
+      "id": "navigation",
+      "uid": "c3cf9b0c-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/replicationControllers/navigation?namespace=default",
+      "resourceVersion": 6586,
+      "namespace": "default",
+      "desiredState": {
+        "replicas": 2,
+        "replicaSelector": {
+          "name": "navigation"
+        },
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "v1beta2",
+              "id": "",
+              "volumes": null,
+              "containers": [
+                {
+                  "name": "navigation",
+                  "image": "zutherb/navigation-service",
+                  "ports": [
+                    {
+                      "containerPort": 18090,
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "resources": {},
+                  "terminationMessagePath": "/dev/termination-log",
+                  "imagePullPolicy": "PullIfNotPresent",
+                  "capabilities": {}
+                }
+              ],
+              "restartPolicy": {
+                "always": {}
+              },
+              "dnsPolicy": "ClusterFirst"
+            }
+          },
+          "labels": {
+            "name": "navigation",
+            "role": "backend",
+            "uses": "mongodb"
+          }
+        }
+      },
+      "currentState": {
+        "replicas": 2,
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "",
+              "id": "",
+              "volumes": null,
+              "containers": null,
+              "restartPolicy": {}
+            }
+          }
+        }
+      },
+      "labels": {
+        "name": "navigation"
+      }
+    },
+    {
+      "id": "product",
+      "uid": "c3ca41c2-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/replicationControllers/product?namespace=default",
+      "resourceVersion": 6584,
+      "namespace": "default",
+      "desiredState": {
+        "replicas": 2,
+        "replicaSelector": {
+          "name": "product"
+        },
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "v1beta2",
+              "id": "",
+              "volumes": null,
+              "containers": [
+                {
+                  "name": "product",
+                  "image": "zutherb/product-service",
+                  "ports": [
+                    {
+                      "containerPort": 18080,
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "resources": {},
+                  "terminationMessagePath": "/dev/termination-log",
+                  "imagePullPolicy": "PullIfNotPresent",
+                  "capabilities": {}
+                }
+              ],
+              "restartPolicy": {
+                "always": {}
+              },
+              "dnsPolicy": "ClusterFirst"
+            }
+          },
+          "labels": {
+            "name": "product",
+            "role": "backend",
+            "uses": "mongodb"
+          }
+        }
+      },
+      "currentState": {
+        "replicas": 2,
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "",
+              "id": "",
+              "volumes": null,
+              "containers": null,
+              "restartPolicy": {}
+            }
+          }
+        }
+      },
+      "labels": {
+        "name": "product"
+      }
+    }
+  ]
+}

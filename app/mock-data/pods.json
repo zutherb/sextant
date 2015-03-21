@@ -1,0 +1,1396 @@
+{
+
+  "kind": "PodList",
+  "creationTimestamp": null,
+  "selfLink": "/api/v1beta2/pods?namespace=",
+  "resourceVersion": 6658,
+  "apiVersion": "v1beta2",
+  "items":
+
+  [
+
+    {
+
+      "id": "cart-nyxxv",
+      "uid": "c68a4b9e-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:25Z",
+      "selfLink": "/api/v1beta2/pods/cart-nyxxv?namespace=default",
+      "resourceVersion": 2520,
+      "namespace": "default",
+      "generateName": "cart-",
+      "labels":
+
+      {
+
+        "name": "cart",
+        "uses": "redis"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "cart",
+              "image": "zutherb/cart-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18100,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.103"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.103",
+        "hostIP": "172.17.8.103",
+        "podIP": "10.244.71.6",
+        "info":
+        {
+
+          "cart":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:38:40Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/cart-service",
+            "imageID": "docker://0df36aedf6b3ed7d7e20a56e2605139465542178702f02be184521086eec3576",
+            "containerID": "docker://7f5ef3376e7a7c553c059b0958a36ca7eea5f80ba2f219cf612678a1edd5b171"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "cart-zi4hx",
+      "uid": "cf2a299b-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:40Z",
+      "selfLink": "/api/v1beta2/pods/cart-zi4hx?namespace=default",
+      "resourceVersion": 2566,
+      "namespace": "default",
+      "generateName": "cart-",
+      "labels":
+
+      {
+
+        "name": "cart",
+        "uses": "redis"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "cart",
+              "image": "zutherb/cart-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18100,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.104"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.104",
+        "hostIP": "172.17.8.104",
+        "podIP": "10.244.100.2",
+        "info":
+        {
+
+          "cart":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T19:59:45Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/cart-service",
+            "imageID": "docker://0df36aedf6b3ed7d7e20a56e2605139465542178702f02be184521086eec3576",
+            "containerID": "docker://6ad5767115049dbd6a9b06a19d96229a41eff3016f69ddbbc95f2593a7d36099"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "catalog-hh2gd",
+      "uid": "c4c5fb5e-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:22Z",
+      "selfLink": "/api/v1beta2/pods/catalog-hh2gd?namespace=default",
+      "resourceVersion": 2510,
+      "namespace": "default",
+      "generateName": "catalog-",
+      "labels":
+
+      {
+
+        "name": "catalog"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "catalog",
+              "image": "zutherb/catalog-frontend",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 80,
+                  "containerPort": 80,
+                  "protocol": "TCP"
+                }
+
+              ],
+              "env":
+              [
+
+                {
+                  "name": "CHECKOUT_DESIGN",
+                  "value": "standard"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.103"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.103",
+        "hostIP": "172.17.8.103",
+        "podIP": "10.244.71.5",
+        "info":
+        {
+
+          "catalog":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:18:07Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/catalog-frontend",
+            "imageID": "docker://494377232c0c4b1e96eb208b5c993edb33575def5b9f7d645ae1e37b0fd77992",
+            "containerID": "docker://5e6f99a677a46081cd79de72b4d8c7f0054c172a0109cb32c52b3d84be46d66b"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "catalog-jzjpe",
+      "uid": "cf27afd7-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:40Z",
+      "selfLink": "/api/v1beta2/pods/catalog-jzjpe?namespace=default",
+      "resourceVersion": 2562,
+      "namespace": "default",
+      "generateName": "catalog-",
+      "labels":
+
+      {
+
+        "name": "catalog"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "catalog",
+              "image": "zutherb/catalog-frontend",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 80,
+                  "containerPort": 80,
+                  "protocol": "TCP"
+                }
+
+              ],
+              "env":
+              [
+
+                {
+                  "name": "CHECKOUT_DESIGN",
+                  "value": "standard"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        }
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+        },
+        "status": "Waiting"
+      }
+
+    },
+    {
+
+      "id": "catalog-ls6k1",
+      "uid": "bf6c9853-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:13Z",
+      "selfLink": "/api/v1beta2/pods/catalog-ls6k1?namespace=default",
+      "resourceVersion": 2480,
+      "namespace": "default",
+      "generateName": "catalog-",
+      "labels":
+
+      {
+
+        "name": "catalog"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "catalog",
+              "image": "zutherb/catalog-frontend",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 80,
+                  "containerPort": 80,
+                  "protocol": "TCP"
+                }
+
+              ],
+              "env":
+              [
+
+                {
+                  "name": "CHECKOUT_DESIGN",
+                  "value": "standard"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.102"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Waiting",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "None"
+          }
+
+        ],
+        "host": "172.17.8.102",
+        "hostIP": "172.17.8.102",
+        "podIP": "10.244.19.10",
+        "info":
+        {
+
+          "catalog":
+
+          {
+
+            "state":
+
+            {
+
+              "waiting":
+
+              {
+                "reason": "Container cannot run"
+              }
+            },
+            "ready": false,
+            "restartCount": 1,
+            "image": "zutherb/catalog-frontend",
+            "imageID": "docker://494377232c0c4b1e96eb208b5c993edb33575def5b9f7d645ae1e37b0fd77992",
+            "containerID": "docker://6747a4618376ae9813255294587417e3b54d090198629f55ccb83e253b43be51"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "mongodb",
+      "uid": "9a48a332-d00d-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T21:02:36Z",
+      "selfLink": "/api/v1beta2/pods/mongodb?namespace=default",
+      "resourceVersion": 6523,
+      "namespace": "default",
+      "labels":
+
+      {
+
+        "name": "mongodb",
+        "role": "database"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "mongodb",
+              "image": "dockerfile/mongodb",
+              "command":
+
+              [
+
+                "mongod",
+                "--smallfiles"
+
+              ],
+              "ports":
+              [
+
+                {
+
+                  "hostPort": 27017,
+                  "containerPort": 27017,
+                  "protocol": "TCP"
+
+                },
+
+                {
+                  "containerPort": 28017,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.104"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Waiting",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "None"
+          }
+
+        ],
+        "host": "172.17.8.104",
+        "hostIP": "172.17.8.104",
+        "podIP": "10.244.100.3",
+        "info":
+        {
+
+          "mongodb":
+
+          {
+
+            "state":
+
+            {
+
+              "waiting":
+
+              {
+                "reason": "Image: dockerfile/mongodb is not ready on the node"
+              }
+            },
+            "ready": false,
+            "restartCount": 0,
+            "image": "",
+            "imageID": ""
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "navigation-fplln",
+      "uid": "ba104821-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:04Z",
+      "selfLink": "/api/v1beta2/pods/navigation-fplln?namespace=default",
+      "resourceVersion": 2440,
+      "namespace": "default",
+      "generateName": "navigation-",
+      "labels":
+
+      {
+
+        "name": "navigation",
+        "role": "backend",
+        "uses": "mongodb"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "navigation",
+              "image": "zutherb/navigation-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18090,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.102"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.102",
+        "hostIP": "172.17.8.102",
+        "podIP": "10.244.19.7",
+        "info":
+        {
+
+          "navigation":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:00:12Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/navigation-service",
+            "imageID": "docker://947aaa6de015d2f0021c783de37f37123aa8248aab49b571a4f1665a8431354a",
+            "containerID": "docker://d322ce51fc4df6fc02681435a8468fddf0c0bc147c5a35ee9658f9f633af146b"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "navigation-gziey",
+      "uid": "ba13071a-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:04Z",
+      "selfLink": "/api/v1beta2/pods/navigation-gziey?namespace=default",
+      "resourceVersion": 2442,
+      "namespace": "default",
+      "generateName": "navigation-",
+      "labels":
+
+      {
+
+        "name": "navigation",
+        "role": "backend",
+        "uses": "mongodb"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "navigation",
+              "image": "zutherb/navigation-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18090,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.102"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.102",
+        "hostIP": "172.17.8.102",
+        "podIP": "10.244.19.8",
+        "info":
+        {
+
+          "navigation":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:00:12Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/navigation-service",
+            "imageID": "docker://947aaa6de015d2f0021c783de37f37123aa8248aab49b571a4f1665a8431354a",
+            "containerID": "docker://e3ac3c715f4a97b3a9c43df81da6d9ea28b5e91abffb64be662e8c6f930fab6f"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "product-9gvmk",
+      "uid": "cf2d6ac9-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:40Z",
+      "selfLink": "/api/v1beta2/pods/product-9gvmk?namespace=default",
+      "resourceVersion": 2568,
+      "namespace": "default",
+      "generateName": "product-",
+      "labels":
+
+      {
+
+        "name": "product",
+        "role": "backend",
+        "uses": "mongodb"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "product",
+              "image": "zutherb/product-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18080,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.103"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.103",
+        "hostIP": "172.17.8.103",
+        "podIP": "10.244.71.7",
+        "info":
+        {
+
+          "product":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:25:43Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/product-service",
+            "imageID": "docker://c2e0c668a2ff817355ca0c79bc87e0dd38c845a9eda9e1fb008f3d43f75c7448",
+            "containerID": "docker://be48663c4705678fb78caaabe9cca3091f5640cfe00876cefb0bede1fa84ce83"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "product-oh43e",
+      "uid": "bbd26f10-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:07Z",
+      "selfLink": "/api/v1beta2/pods/product-oh43e?namespace=default",
+      "resourceVersion": 2455,
+      "namespace": "default",
+      "generateName": "product-",
+      "labels":
+
+      {
+
+        "name": "product",
+        "role": "backend",
+        "uses": "mongodb"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "product",
+              "image": "zutherb/product-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18080,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.102"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.102",
+        "hostIP": "172.17.8.102",
+        "podIP": "10.244.19.9",
+        "info":
+        {
+
+          "product":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:40:52Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/product-service",
+            "imageID": "docker://c2e0c668a2ff817355ca0c79bc87e0dd38c845a9eda9e1fb008f3d43f75c7448",
+            "containerID": "docker://2db72bc46917c6b71a54ae7739d15c0215a3a226040bd85edc5931af727dfd29"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "redis",
+      "uid": "9a39da1e-d00d-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T21:02:36Z",
+      "selfLink": "/api/v1beta2/pods/redis?namespace=default",
+      "resourceVersion": 6516,
+      "namespace": "default",
+      "labels":
+
+      {
+
+        "name": "redis",
+        "role": "database"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "redis",
+              "image": "dockerfile/redis",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 6379,
+                  "containerPort": 6379,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.103"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Waiting",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "None"
+          }
+
+        ],
+        "host": "172.17.8.103",
+        "hostIP": "172.17.8.103",
+        "podIP": "10.244.71.8",
+        "info":
+        {
+
+          "redis":
+
+          {
+
+            "state":
+
+            {
+
+              "waiting":
+
+              {
+                "reason": "Image: dockerfile/redis is not ready on the node"
+              }
+            },
+            "ready": false,
+            "restartCount": 0,
+            "image": "",
+            "imageID": ""
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "shop",
+      "uid": "9a635bea-d00d-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T21:02:37Z",
+      "selfLink": "/api/v1beta2/pods/shop?namespace=default",
+      "resourceVersion": 6538,
+      "namespace": "default",
+      "labels":
+
+      {
+
+        "name": "shop",
+        "role": "frontend"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "shop",
+              "image": "zutherb/monolithic-shop",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 8080,
+                  "containerPort": 8080,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.102"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Waiting",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "None"
+          }
+
+        ],
+        "host": "172.17.8.102",
+        "hostIP": "172.17.8.102",
+        "podIP": "10.244.19.12",
+        "info":
+        {
+
+          "shop":
+
+          {
+
+            "state":
+
+            {
+
+              "waiting":
+
+              {
+                "reason": "Image: zutherb/monolithic-shop is not ready on the node"
+              }
+            },
+            "ready": false,
+            "restartCount": 0,
+            "image": "",
+            "imageID": ""
+          }
+        }
+      }
+    }
+  ]
+
+}

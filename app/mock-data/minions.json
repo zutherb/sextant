@@ -1,0 +1,175 @@
+{
+
+  "kind": "MinionList",
+  "creationTimestamp": null,
+  "selfLink": "/api/v1beta2/minions",
+  "resourceVersion": 6700,
+  "apiVersion": "v1beta2",
+  "items":
+
+  [
+
+    {
+
+      "id": "172.17.8.102",
+      "uid": "a9e6f7fc-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:08:31Z",
+      "selfLink": "/api/v1beta2/minions/172.17.8.102",
+      "resourceVersion": 6694,
+      "hostIP": "172.17.8.102",
+      "resources":
+
+      {
+
+        "capacity":
+
+        {
+          "cpu": "2",
+          "memory": 1574793216
+        }
+
+      },
+      "status":
+      {
+
+        "conditions":
+
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full",
+            "lastProbeTime": "2015-03-21T21:04:31Z",
+            "lastTransitionTime": null,
+            "reason": "kubelet is posting ready status"
+          }
+
+        ],
+        "addresses":
+        [
+
+          {
+            "type": "LegacyHostIP",
+            "address": "172.17.8.102"
+          }
+
+        ],
+        "nodeInfo":
+
+        {
+          "machineID": "a4dc3862b9364f96bf284701157341d7",
+          "systemUUID": "CC0FC9D0-C803-4F06-A49D-3F8A9E4A1804"
+        }
+      }
+
+    },
+    {
+
+      "id": "172.17.8.103",
+      "uid": "a9e64458-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:08:31Z",
+      "selfLink": "/api/v1beta2/minions/172.17.8.103",
+      "resourceVersion": 6692,
+      "hostIP": "172.17.8.103",
+      "resources":
+
+      {
+
+        "capacity":
+
+        {
+          "cpu": "2",
+          "memory": 1574793216
+        }
+
+      },
+      "status":
+      {
+
+        "conditions":
+
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full",
+            "lastProbeTime": "2015-03-21T21:04:30Z",
+            "lastTransitionTime": null,
+            "reason": "kubelet is posting ready status"
+          }
+
+        ],
+        "addresses":
+        [
+
+          {
+            "type": "LegacyHostIP",
+            "address": "172.17.8.103"
+          }
+
+        ],
+        "nodeInfo":
+
+        {
+          "machineID": "8298ef0050864877a743af79ee8cbb2c",
+          "systemUUID": "5C48390F-A330-4029-87E1-EE1FAA7DDFCC"
+        }
+      }
+
+    },
+    {
+
+      "id": "172.17.8.104",
+      "uid": "a9e7360e-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:08:31Z",
+      "selfLink": "/api/v1beta2/minions/172.17.8.104",
+      "resourceVersion": 6684,
+      "hostIP": "172.17.8.104",
+      "resources":
+
+      {
+
+        "capacity":
+
+        {
+          "cpu": "2",
+          "memory": 1574793216
+        }
+
+      },
+      "status":
+      {
+
+        "conditions":
+
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full",
+            "lastProbeTime": "2015-03-21T21:04:22Z",
+            "lastTransitionTime": null,
+            "reason": "kubelet is posting ready status"
+          }
+
+        ],
+        "addresses":
+        [
+
+          {
+            "type": "LegacyHostIP",
+            "address": "172.17.8.104"
+          }
+
+        ],
+        "nodeInfo":
+
+        {
+          "machineID": "f84ea0b8675d41808ab387035d00b539",
+          "systemUUID": "759D0D0A-EE34-4050-94E0-6E7D29F82442"
+        }
+      }
+    }
+  ]
+
+}

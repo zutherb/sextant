@@ -1,0 +1,253 @@
+{
+
+  "kind": "ServiceList",
+  "creationTimestamp": null,
+  "selfLink": "/api/v1beta2/services?namespace=",
+  "resourceVersion": 6758,
+  "apiVersion": "v1beta2",
+  "items":
+
+  [
+
+    {
+
+      "id": "cart",
+      "uid": "c3ee8715-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/services/cart?namespace=default",
+      "resourceVersion": 636,
+      "namespace": "default",
+      "port": 18100,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "cart",
+        "role": "backend"
+
+      },
+      "selector":
+
+      {
+        "name": "cart"
+      },
+      "containerPort": 18100,
+      "portalIP": "10.100.228.66",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "catalog",
+      "uid": "c415fd2a-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:15Z",
+      "selfLink": "/api/v1beta2/services/catalog?namespace=default",
+      "resourceVersion": 651,
+      "namespace": "default",
+      "port": 80,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "catalog",
+        "role": "frontend"
+
+      },
+      "selector":
+
+      {
+        "name": "catalog"
+      },
+      "containerPort": 80,
+      "portalIP": "10.100.245.6",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "kubernetes",
+      "uid": "9575fde8-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:07:56Z",
+      "selfLink": "/api/v1beta2/services/kubernetes?namespace=default",
+      "resourceVersion": 531,
+      "namespace": "default",
+      "port": 443,
+      "protocol": "TCP",
+      "labels":
+
+      {
+        "component": "apiserver",
+        "provider": "kubernetes"
+      },
+      "selector": null,
+      "containerPort": 0,
+      "portalIP": "10.100.0.2",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "kubernetes-ro",
+      "uid": "956d2e07-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:07:56Z",
+      "selfLink": "/api/v1beta2/services/kubernetes-ro?namespace=default",
+      "resourceVersion": 530,
+      "namespace": "default",
+      "port": 80,
+      "protocol": "TCP",
+      "labels":
+
+      {
+        "component": "apiserver",
+        "provider": "kubernetes"
+      },
+      "selector": null,
+      "containerPort": 0,
+      "portalIP": "10.100.0.1",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "mongodb",
+      "uid": "c3f4bcb6-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/services/mongodb?namespace=default",
+      "resourceVersion": 638,
+      "namespace": "default",
+      "port": 27017,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "mongodb",
+        "role": "database"
+
+      },
+      "selector":
+
+      {
+        "name": "mongodb"
+      },
+      "containerPort": 27017,
+      "portalIP": "10.100.198.149",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "navigation",
+      "uid": "c40ba011-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:15Z",
+      "selfLink": "/api/v1beta2/services/navigation?namespace=default",
+      "resourceVersion": 646,
+      "namespace": "default",
+      "port": 18090,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "navigation",
+        "role": "backend"
+
+      },
+      "selector":
+
+      {
+        "name": "navigation"
+      },
+      "containerPort": 18090,
+      "portalIP": "10.100.22.137",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "product",
+      "uid": "c402f104-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/services/product?namespace=default",
+      "resourceVersion": 643,
+      "namespace": "default",
+      "port": 18080,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "product",
+        "role": "backend"
+
+      },
+      "selector":
+
+      {
+        "name": "product"
+      },
+      "containerPort": 18080,
+      "portalIP": "10.100.244.61",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "redis",
+      "uid": "c3e5dd37-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:14Z",
+      "selfLink": "/api/v1beta2/services/redis?namespace=default",
+      "resourceVersion": 632,
+      "namespace": "default",
+      "port": 6379,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "redis",
+        "role": "database"
+
+      },
+      "selector":
+
+      {
+        "name": "redis"
+      },
+      "containerPort": 6379,
+      "portalIP": "10.100.72.133",
+      "sessionAffinity": "None"
+
+    },
+    {
+
+      "id": "shop",
+      "uid": "c4127ea5-cffd-11e4-a42a-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:09:15Z",
+      "selfLink": "/api/v1beta2/services/shop?namespace=default",
+      "resourceVersion": 649,
+      "namespace": "default",
+      "port": 8080,
+      "protocol": "TCP",
+      "labels":
+
+      {
+
+        "name": "shop",
+        "role": "frontend"
+
+      },
+      "selector":
+
+      {
+        "name": "shop"
+      },
+      "containerPort": 8080,
+      "portalIP": "10.100.122.41",
+      "sessionAffinity": "None"
+    }
+  ]
+
+}
