@@ -1,4 +1,5 @@
 {
     "EVENT_SERVICE_URL": "/api/kubernetes/events",
-    "EVENT_SERVICE_URL": "/api/kubernetes/minions"
+    "MINION_SERVICE_URL": "/api/kubernetes/minions",
+    "POD_SERVICE_URL": "/api/kubernetes/pods"
 }

@@ -1,4 +1,5 @@
 {
     "EVENT_SERVICE_URL": "/mock-data/events.json",
-    "MINION_SERVICE_URL": "/mock-data/minions.json"
+    "MINION_SERVICE_URL": "/mock-data/minions.json",
+    "POD_SERVICE_URL": "/mock-data/pods.json"
 }

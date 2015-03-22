@@ -18,11 +18,16 @@ var sextant = angular.module('sextant', [
         .when('/', {
             templateUrl: 'views/main.html'
         })
+        .when('/minions', {
+            templateUrl: 'views/minions.html'
+        })
+        .when('/pods', {
+            templateUrl: 'views/pods.html'
+        })
         .when('/events', {
             templateUrl: 'views/events.html'
-        }).when('/minions', {
-            templateUrl: 'views/minions.html'
-        }).otherwise({
+        })
+        .otherwise({
             templateUrl: 'views/404.html'
         });
 }).config(['localStorageServiceProvider', (localStorageServiceProvider) => {

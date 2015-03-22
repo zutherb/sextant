@@ -1,6 +1,7 @@
 interface IConfiguration {
     EVENT_SERVICE_URL: string;
     MINION_SERVICE_URL: string;
+    POD_SERVICE_URL: string;
 }
 
 interface IKubernetesBaseObject {
@@ -23,8 +24,6 @@ interface IEventList extends IKubernetesBaseObject {
 }
 
 interface IEvent extends IKubernetesItemBaseObject {
-    id: string;
-    uid: string;
     namespace: string;
     involvedObject: IInvolvedObject;
     reason: string;
@@ -86,4 +85,44 @@ interface IAddress {
 interface INodeInfo {
     machineID: string;
     systemUUID: string;
+}
+
+interface IPodList extends IKubernetesBaseObject {
+    items: IPod [];
+}
+
+interface IPod extends IKubernetesItemBaseObject {
+    namespace: string;
+    generateName: string;
+    labels: any;
+    desiredState: IDesiredState;
+}
+
+interface IDesiredState {
+    manifest: IManifest;
+    host: string;
+}
+
+interface IManifest {
+    version: string;
+    id: string;
+    volumes: any;
+    containers: IContainer [];
+    restartPolicy:any;
+    dnsPolicy: string;
+}
+
+interface IContainer {
+    name: string;
+    image: string;
+    ports: IPort [];
+    resources: any;
+    terminationMessagePath: string;
+    imagePullPolicy: string;
+    capabilities: any;
+}
+
+interface IPort {
+    containerPort: number;
+    protocol: string;
 }

@@ -1,0 +1,27 @@
+<h1>Pods</h1>
+<div class="col-md-12">
+    <table class="table table-striped" ng-controller="PodListController">
+        <thead>
+            <tr>
+                <th>POD</th>
+                <th>IP</th>
+                <th>CONTAINER(S)</th>
+                <th>IMAGE(S)</th>
+                <th>HOST</th>
+                <th>LABELS</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pod in vm.pods">
+                <td>{{pod.id}}</td>
+                <td>{{pod.currentState.podIP}}</td>
+                <td><span ng-repeat="container in pod.desiredState.manifest.containers">{{container.name}}<br /></span></td>
+                <td><span ng-repeat="container in pod.desiredState.manifest.containers">{{container.image}}<br /></span></td>
+                <td>{{pod.desiredState.host}}/{{pod.currentState.host}}</td>
+                <td>{{pod.labels}}</td>
+                <td>{{pod.currentState.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
