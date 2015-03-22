@@ -1,0 +1,19 @@
+<h1>Minions</h1>
+<div class="col-md-12">
+    <table class="table table-striped" ng-controller="MinionListController">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>LABELS</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="minion in vm.minions">
+                <td>{{minion.hostIP}}</td>
+                <td>{{minion.labels}}</td>
+                <td>{{minion.status.conditions.0.kind}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

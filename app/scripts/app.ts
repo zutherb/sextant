@@ -18,10 +18,10 @@ var sextant = angular.module('sextant', [
         .when('/', {
             templateUrl: 'views/main.html'
         })
-        .when('/productcatalog/:productType', {
-            templateUrl: 'views/catalog.html'
-        }).when('/productdetail/:urlname', {
-            templateUrl: 'views/detail.html'
+        .when('/events', {
+            templateUrl: 'views/events.html'
+        }).when('/minions', {
+            templateUrl: 'views/minions.html'
         }).otherwise({
             templateUrl: 'views/404.html'
         });

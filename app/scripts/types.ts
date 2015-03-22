@@ -1,19 +1,28 @@
 interface IConfiguration {
-    EVENT_SERVICE_URL: string
+    EVENT_SERVICE_URL: string;
+    MINION_SERVICE_URL: string;
 }
 
-interface IBaseObject {
+interface IKubernetesBaseObject {
     creationTimestamp: string;
     selfLink: string;
+    apiVersion: string;
+    kind: string;
+    resourceVersion: number;
 }
 
-interface IEventList extends IBaseObject {
-    kind: string;
-    apiVersion: string;
+interface IKubernetesItemBaseObject {
+    id: string;
+    uid: string;
+    selfLink: string;
+    resourceVersion: number;
+}
+
+interface IEventList extends IKubernetesBaseObject {
     items: IEvent [];
 }
 
-interface IEvent extends IBaseObject {
+interface IEvent extends IKubernetesItemBaseObject {
     id: string;
     uid: string;
     namespace: string;
@@ -34,4 +43,47 @@ interface IInvolvedObject {
     name: string;
     uid: string;
     fieldPath: string;
+}
+
+interface IMinionList extends IKubernetesBaseObject {
+    items: IMinion [];
+}
+
+interface IMinion extends IKubernetesItemBaseObject {
+    hostIP: string;
+    resources: IResources;
+    status: IStatus;
+}
+
+interface IResources {
+    capacity: ICapacity;
+}
+
+interface ICapacity {
+    cpu: number;
+    memory: number;
+}
+
+interface IStatus {
+    conditions: IConditions;
+    addresses: IAddress;
+    nodeInfo: INodeInfo;
+}
+
+interface IConditions {
+    kind: string;
+    status: string;
+    lastProbeTime: string;
+    lastTransitionTime: string;
+    reason: string;
+}
+
+interface IAddress {
+    type: string;
+    address: string;
+}
+
+interface INodeInfo {
+    machineID: string;
+    systemUUID: string;
 }

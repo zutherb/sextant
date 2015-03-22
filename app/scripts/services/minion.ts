@@ -1,8 +1,8 @@
-interface IEventService {
-    getEventList(): ng.IPromise <IEventList>
+interface IMinionService {
+    getMinionList(): ng.IPromise <IMinionList>
 }
 
-class EventService implements IEventService {
+class MinionService implements IMinionService {
     private httpService:ng.IHttpService;
     private qService:ng.IQService;
     private rootScope:ng.IScope
@@ -19,13 +19,13 @@ class EventService implements IEventService {
         this.configuration = configuration;
     }
 
-    getEventList():ng.IPromise <IEventList> {
+    getMinionList(): ng.IPromise <IMinionList> {
         var deferred = this.qService.defer();
-        this.httpService.get(this.configuration.EVENT_SERVICE_URL)
+        this.httpService.get(this.configuration.MINION_SERVICE_URL)
             .success((data) => deferred.resolve(data))
             .error((error:any) => {});
         return deferred.promise;
     }
 }
 
-sextant.service('eventService', EventService);
+sextant.service('minionService', MinionService);

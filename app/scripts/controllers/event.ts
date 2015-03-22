@@ -7,7 +7,7 @@ interface IEventListScope extends ng.IScope {
 class EventListController {
     events: IEvent [];
 
-    static $inject = ['$scope', '$routeParams', 'productService'];
+    static $inject = ['$scope', '$routeParams', 'eventService'];
 
     constructor(private $scope,
                 private $routeParams,

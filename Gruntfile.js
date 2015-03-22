@@ -562,7 +562,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'replace:development',
+            'replace:production',
             'tsd',
             'typescript',
             'copy:glyphicons',
@@ -609,26 +609,6 @@ module.exports = function (grunt) {
         'usemin',
         'htmlmin'
     ]);
-
-  grunt.registerTask('docker', [
-    'clean:dist',
-    'tsd',
-    'typescript',
-    'replace:docker',
-    'wiredep',
-    'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
-    'concat',
-    'ngmin',
-    'copy:dist',
-    'cdnify',
-    'cssmin',
-    'uglify',
-    'filerev',
-    'usemin',
-    'htmlmin'
-  ]);
 
     grunt.registerTask('default', [
         'newer:jshint',
