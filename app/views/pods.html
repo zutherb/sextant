@@ -26,11 +26,23 @@
                 <td>{{pod.labels}}</td>
                 <td>{{pod.currentState.status}}</td>
                 <td>
+                    <a ng-href="/#/events/{{pod.id}}">
+                        <button class="btn btn-sm" type="button">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </button>
+                    </a>
                     <button class="btn btn-sm btn-danger" ng-click="vm.deletePod($index)" type="button">
                         <i class="glyphicon glyphicon-remove-circle" />
                     </button>
                 </td>
             </tr>
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
+            </td>
+        </tr>
+        </tfoot>
     </table>
 </div>

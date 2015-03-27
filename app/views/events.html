@@ -1,20 +1,27 @@
 <h1>Events</h1>
 <div class="table-responsive">
-    <table class="table table-striped" ng-controller="EventListController">
+    <table st-table="vm.displayedEvents" st-safe-src="vm.events" class="table table-striped" ng-controller="EventListController">
         <thead>
             <tr>
-                <th>TIME</th>
-                <th>NAME</th>
-                <th>KIND</th>
-                <th>SUBOBJECT</th>
-                <th>REASON</th>
-                <th>SOURCE</th>
-                <th>MESSAGE</th>
+                <th st-sort="timestamp" st-sort-default="reverse">DATE</th>
+                <th st-sort="timestamp">TIME</th>
+                <th st-sort="involvedObject.name">NAME</th>
+                <th st-sort="involvedObject.kind">KIND</th>
+                <th st-sort="involvedObject.fieldPath">SUBOBJECT</th>
+                <th st-sort="reason">REASON</th>
+                <th st-sort="source">SOURCE</th>
+                <th st-sort="message">MESSAGE</th>
+            </tr>
+            <tr>
+                <th colspan="8">
+                    <input st-search class="form-control" placeholder="global search ..." type="search" ng-model="vm.search" />
+                </th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in vm.events">
-                <td>{{item.timestamp | date:'medium'}}</td>
+            <tr ng-repeat="item in vm.displayedEvents | orderBy:'-timestamp'">
+                <td>{{item.timestamp | date:'yyyy-MM-dd'}}</td>
+                <td>{{item.timestamp | date:'HH:mm:ss'}}</td>
                 <td>{{item.involvedObject.name}}</td>
                 <td>{{item.involvedObject.kind}}</td>
                 <td>{{item.involvedObject.fieldPath}}</td>
@@ -23,5 +30,12 @@
                 <td>{{item.message}}</td>
             </tr>
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
+            </td>
+        </tr>
+        </tfoot>
     </table>
 </div>

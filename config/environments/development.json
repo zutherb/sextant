@@ -2,5 +2,7 @@
     "EVENT_SERVICE_URL": "/mock-data/events.json",
     "MINION_SERVICE_URL": "/mock-data/minions.json",
     "POD_SERVICE_URL": "/mock-data/pods.json",
-    "RC_SERVICE_URL": "/mock-data/replicationControllers.json"
+    "RC_SERVICE_URL": "/mock-data/replicationControllers.json",
+    "NUMBER_OF_ITEMS_PER_PAGE": 20,
+    "NUMBER_OF_DISPLAYED_PAGES": 5
 }

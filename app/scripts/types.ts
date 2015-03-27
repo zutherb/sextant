@@ -3,6 +3,8 @@ interface IConfiguration {
     MINION_SERVICE_URL: string;
     POD_SERVICE_URL: string;
     RC_SERVICE_URL: string;
+    NUMBER_OF_ITEMS_PER_PAGE: number;
+    NUMBER_OF_DISPLAYED_PAGES: number;
 }
 
 interface IKubernetesBaseObject {

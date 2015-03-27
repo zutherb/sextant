@@ -6,7 +6,7 @@ interface IPodService {
 class PodService implements IPodService {
     private httpService:ng.IHttpService;
     private qService:ng.IQService;
-    private rootScope:ng.IScope
+    private rootScope:ng.IScope;
 
     static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
