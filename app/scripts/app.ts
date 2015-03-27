@@ -11,6 +11,7 @@ var sextant = angular.module('sextant', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'smart-table',
     'sextant.config',
     'LocalStorageModule'
 ]).config(($routeProvider:ng.route.IRouteProvider) => {

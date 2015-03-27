@@ -8,6 +8,7 @@ interface IPodListScope extends ng.IScope {
 
 class PodListController {
     pods: IPod [];
+    displayedPods: IPod [];
 
     static $inject = ['$scope', '$routeParams', 'podService'];
 
@@ -17,28 +18,29 @@ class PodListController {
 
         podService.getPodList().then((data: IPodList) =>  {
             this.pods = data.items;
+            this.displayedPods = [].concat(data.items);
         });
 
         $scope.vm = this;
     }
 
     rowClass(index: number): string {
-        if(this.pods[index].currentState.status == 'Running') {
+        if(this.displayedPods[index].currentState.status == 'Running') {
             return 'success'
         }
-        if(this.pods[index].currentState.status == 'Pending' ||
-           this.pods[index].currentState.status == 'Waiting' ||
-           this.pods[index].currentState.status == 'Unkown') {
+        if(this.displayedPods[index].currentState.status == 'Pending' ||
+           this.displayedPods[index].currentState.status == 'Waiting' ||
+           this.displayedPods[index].currentState.status == 'Unknown') {
             return 'warning'
         }
         return 'danger'
     }
 
     deletePod(index: number): void {
-        var podId = this.pods[index].id;
+        var podId = this.displayedPods[index].id;
         this.podService.deletePod(podId).then(() => {
             this.podService.getPodList().then((data: IPodList) =>  {
-                this.pods = data.items;
+                this.displayedPods = data.items;
             });
         });
     }
