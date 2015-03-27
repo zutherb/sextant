@@ -24,6 +24,12 @@ var sextant = angular.module('sextant', [
         .when('/pods', {
             templateUrl: 'views/pods.html'
         })
+        .when('/rc', {
+            templateUrl: 'views/rc.html'
+        })
+        .when('/services', {
+            templateUrl: 'views/services.html'
+        })
         .when('/events', {
             templateUrl: 'views/events.html'
         })

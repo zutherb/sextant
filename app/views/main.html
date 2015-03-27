@@ -1,27 +1,3 @@
-<h1>Events</h1>
 <div class="col-md-12">
-    <table class="table table-striped" ng-controller="EventListController">
-        <thead>
-            <tr>
-                <th>TIME</th>
-                <th>NAME</th>
-                <th>KIND</th>
-                <th>SUBOBJECT</th>
-                <th>REASON</th>
-                <th>SOURCE</th>
-                <th>MESSAGE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in vm.events">
-                <td>{{item.timestamp}}</td>
-                <td>{{item.involvedObject.name}}</td>
-                <td>{{item.involvedObject.kind}}</td>
-                <td>{{item.involvedObject.fieldPath}}</td>
-                <td>{{item.reason}}</td>
-                <td>{{item.source}}</td>
-                <td>{{item.message}}</td>
-            </tr>
-        </tbody>
-    </table>
+
 </div>

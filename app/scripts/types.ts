@@ -2,6 +2,7 @@ interface IConfiguration {
     EVENT_SERVICE_URL: string;
     MINION_SERVICE_URL: string;
     POD_SERVICE_URL: string;
+    RC_SERVICE_URL: string;
 }
 
 interface IKubernetesBaseObject {
@@ -96,11 +97,16 @@ interface IPod extends IKubernetesItemBaseObject {
     generateName: string;
     labels: any;
     desiredState: IDesiredState;
+    currentState: ICurrentState;
 }
 
 interface IDesiredState {
     manifest: IManifest;
     host: string;
+}
+
+interface ICurrentState {
+    status: string;
 }
 
 interface IManifest {
@@ -125,4 +131,8 @@ interface IContainer {
 interface IPort {
     containerPort: number;
     protocol: string;
+}
+
+interface IReplicationControllerList extends IKubernetesBaseObject {
+    items: IPod [];
 }

@@ -2,6 +2,8 @@
 
 interface IPodListScope extends ng.IScope {
     vm: PodListController;
+    rowClass(index: number): string;
+    deletePod(index: number): void;
 }
 
 class PodListController {
@@ -18,6 +20,27 @@ class PodListController {
         });
 
         $scope.vm = this;
+    }
+
+    rowClass(index: number): string {
+        if(this.pods[index].currentState.status == 'Running') {
+            return 'success'
+        }
+        if(this.pods[index].currentState.status == 'Pending' ||
+           this.pods[index].currentState.status == 'Waiting' ||
+           this.pods[index].currentState.status == 'Unkown') {
+            return 'warning'
+        }
+        return 'danger'
+    }
+
+    deletePod(index: number): void {
+        var podId = this.pods[index].id;
+        this.podService.deletePod(podId).then(() => {
+            this.podService.getPodList().then((data: IPodList) =>  {
+                this.pods = data.items;
+            });
+        });
     }
 }
 

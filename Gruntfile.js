@@ -127,9 +127,9 @@ module.exports = function (grunt) {
                     context: '/api/kubernetes',
                     host: 'localhost',
                     port: 8080,
-                    changeOrigin: true,
+                    changeOrigin: false,
                     rewrite: {
-                        'api/kubernetes' : 'api/v1beta2'
+                        '^/api/kubernetes' : '/api/v1beta2'
                     }
                 }
             ],
@@ -538,6 +538,26 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'replace:development',
+            'tsd',
+            'typescript',
+            'copy:glyphicons',
+            'wiredep',
+            'configureProxies',
+            'concurrent:server',
+            'autoprefixer',
+            'connect:livereload',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('serve:prod', 'Compile then start a connect web server', function (target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
+        }
+
+        grunt.task.run([
+            'clean:server',
+            'replace:production',
             'tsd',
             'typescript',
             'copy:glyphicons',

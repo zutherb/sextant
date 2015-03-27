@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in vm.events">
-                <td>{{item.timestamp}}</td>
+                <td>{{item.timestamp | date:'medium'}}</td>
                 <td>{{item.involvedObject.name}}</td>
                 <td>{{item.involvedObject.kind}}</td>
                 <td>{{item.involvedObject.fieldPath}}</td>
