@@ -1,0 +1,350 @@
+{
+
+  "kind": "PodList",
+  "creationTimestamp": null,
+  "selfLink": "/api/v1beta1/pods/?namespace=",
+  "resourceVersion": 29010,
+  "apiVersion": "v1beta1",
+  "items":
+
+  [
+
+    {
+
+      "id": "dockerui",
+      "uid": "87173844-d49d-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T16:22:56Z",
+      "selfLink": "/api/v1beta1/pods/dockerui?namespace=default",
+      "resourceVersion": 24786,
+      "namespace": "default",
+      "labels":
+
+      {
+
+        "name": "dockerui",
+        "role": "kitbag"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes":
+
+          [
+
+            {
+
+              "name": "socket",
+              "source":
+
+              {
+
+                "hostDir":
+
+                {
+                  "path": "/var/run/docker.sock"
+                },
+                "emptyDir": null,
+                "persistentDisk": null,
+                "gitRepo": null
+              }
+            }
+
+          ],
+          "containers":
+          [
+
+            {
+
+              "name": "dockerui",
+              "image": "dockerui/dockerui",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 9000,
+                  "containerPort": 9000,
+                  "protocol": "TCP"
+                }
+
+              ],
+              "resources": { },
+              "volumeMounts":
+              [
+
+                {
+                  "name": "socket",
+                  "readOnly": true,
+                  "mountPath": "/var/run/docker.sock",
+                  "path": "/var/run/docker.sock"
+                }
+              ],
+              "terminationMessagePath": "/dev/termination-log",
+              "privileged": true,
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        }
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.103",
+        "hostIP": "172.17.8.103",
+        "podIP": "10.244.21.6",
+        "info":
+        {
+
+          "POD":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-27T16:22:57Z"
+              }
+            },
+            "ready": false,
+            "restartCount": 0,
+            "podIP": "10.244.21.6",
+            "image": "kubernetes/pause:latest",
+            "imageID": "docker://6c4579af347b649857e915521132f15a06186d73faa62145e3eeeb6be0e97c27",
+            "containerID": "docker://07b58cfd75fdd75a4fcfcbe1370352c115360dbd4f2b6faef18113377b8861ef"
+
+          },
+          "dockerui":
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-27T16:24:59Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "dockerui/dockerui",
+            "imageID": "docker://0d9029bbe907bad3412ee5faab2f4dadd3d0c8f008bb317ecfd49ff0b3e6f830",
+            "containerID": "docker://9156651de35cd4d268d536ab006b9bda19084ce42edece244a1210eec592c1ad"
+          }
+        }
+      }
+
+    },
+    {
+
+      "id": "dockerui-ls6k1",
+      "uid": "8da90873-d4a5-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T17:20:23Z",
+      "selfLink": "/api/v1beta1/pods/dockerui-ls6k1?namespace=default",
+      "resourceVersion": 28478,
+      "namespace": "default",
+      "generateName": "dockerui-",
+      "labels":
+
+      {
+
+        "name": "dockerui",
+        "role": "kitbag"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes":
+
+          [
+
+            {
+
+              "name": "socket",
+              "source":
+
+              {
+
+                "hostDir":
+
+                {
+                  "path": "/var/run/docker.sock"
+                },
+                "emptyDir": null,
+                "persistentDisk": null,
+                "gitRepo": null
+              }
+            }
+
+          ],
+          "containers":
+          [
+
+            {
+
+              "name": "dockerui",
+              "image": "dockerui/dockerui",
+              "ports":
+
+              [
+
+                {
+                  "hostPort": 9000,
+                  "containerPort": 9000,
+                  "protocol": "TCP"
+                }
+
+              ],
+              "resources": { },
+              "volumeMounts":
+              [
+
+                {
+                  "name": "socket",
+                  "readOnly": true,
+                  "mountPath": "/var/run/docker.sock",
+                  "path": "/var/run/docker.sock"
+                }
+              ],
+              "terminationMessagePath": "/dev/termination-log",
+              "privileged": true,
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        }
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.102",
+        "hostIP": "172.17.8.102",
+        "podIP": "10.244.5.6",
+        "info":
+        {
+
+          "POD":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-27T16:37:54Z"
+              }
+            },
+            "ready": false,
+            "restartCount": 0,
+            "podIP": "10.244.5.6",
+            "image": "kubernetes/pause:latest",
+            "imageID": "docker://6c4579af347b649857e915521132f15a06186d73faa62145e3eeeb6be0e97c27",
+            "containerID": "docker://9fb0622ad45bc710fb0a193c992046584b47af13678587c46df2d114c6dca236"
+
+          },
+          "dockerui":
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-27T16:38:33Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "dockerui/dockerui",
+            "imageID": "docker://0d9029bbe907bad3412ee5faab2f4dadd3d0c8f008bb317ecfd49ff0b3e6f830",
+            "containerID": "docker://b5a29d918254f04d9517dbea9841d5be7bf21e7f0f309bbdb619ffe7ea2cfca1"
+          }
+        }
+      }
+    }
+  ]
+
+}

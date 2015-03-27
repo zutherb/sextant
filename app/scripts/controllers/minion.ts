@@ -1,4 +1,5 @@
 /// <reference path="../services/minion.ts"/>
+/// <reference path="../services/dockerui.ts"/>
 
 interface IMinionListScope extends ng.IScope {
     vm: MinionListController;
@@ -6,18 +7,34 @@ interface IMinionListScope extends ng.IScope {
 
 class MinionListController {
     minions: IMinion [];
+    dockerUiPods: IPod [];
 
-    static $inject = ['$scope', '$routeParams', 'minionService'];
+    static $inject = ['$scope', '$routeParams', 'minionService', 'dockerUiService'];
 
     constructor(private $scope,
                 private $routeParams,
-                private minionService: IMinionService) {
+                private minionService: IMinionService,
+                private dockerUiService: DockerUiService) {
 
         minionService.getMinionList().then((data: IMinionList) =>  {
             this.minions = data.items;
         });
 
+        dockerUiService.getPodList().then((data: IPodList) =>  {
+            this.dockerUiPods = data.items;
+        });
+
         $scope.vm = this;
+    }
+
+    isDockerUiNotRunningOnHost(hostIP:string): boolean {
+        var pods = _.filter(this.dockerUiPods, (pod:IPod) => pod.currentState.hostIP == hostIP);
+        return _.isEmpty(pods);
+    }
+
+    getDockerUiPort(hostIP:string): number {
+        var pods = _.filter(this.dockerUiPods, (pod:IPod) => pod.currentState.hostIP == hostIP);
+        return pods[0].desiredState.manifest.containers[0].ports[0].hostPort;
     }
 }
 

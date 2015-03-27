@@ -3,6 +3,7 @@
     "MINION_SERVICE_URL": "/api/kubernetes/minions",
     "POD_SERVICE_URL": "/api/kubernetes/pods",
     "RC_SERVICE_URL": "/api/kubernetes/replicationControllers",
+    "DOCKERUI_SERVICE_URL": "/api/kubernetes/pods/?labels=name%3Ddockerui",
     "NUMBER_OF_ITEMS_PER_PAGE": 20,
     "NUMBER_OF_DISPLAYED_PAGES": 5
 }

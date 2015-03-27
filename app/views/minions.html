@@ -3,19 +3,20 @@
     <table class="table table-striped" ng-controller="MinionListController">
         <thead>
         <tr>
-            <th colspan="2">NAME</th>
+            <th>NAME</th>
             <th>LABELS</th>
             <th>STATUS</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="minion in vm.minions">
-            <td>{{minion.hostIP}}</td>
-            <td>
-                <button type="button" class="btn btn-sm">
-                    <i class="glyphicon glyphicon-eye-open"></i>
-                </button>
-            </td>
+            <td>{{minion.hostIP}}&nbsp;
+                <a ng-hide="vm.isDockerUiNotRunningOnHost(minion.hostIP)" ng-href="http://{{minion.hostIP}}:{{vm.getDockerUiPort(minion.hostIP)}}">
+                    <button type="button" class="btn btn-sm" data-toggle="tooltip" data-placement="top"
+                            title="Tooltip on top">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </button>
+                </a>
             <td>{{minion.labels}}</td>
             <td>{{minion.status.conditions.0.kind}}</td>
         </tr>
