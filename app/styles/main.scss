@@ -99,3 +99,11 @@ $icon-font-path: "../fonts/";
   margin-top: -15px
 }
 
+.st-sort-ascent::before {
+  content: "▲";
+}
+
+.st-sort-descent::before {
+  content: "▼";
+}
+
