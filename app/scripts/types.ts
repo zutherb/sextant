@@ -1,143 +1,158 @@
-interface IConfiguration {
-    EVENT_SERVICE_URL: string;
-    MINION_SERVICE_URL: string;
-    POD_SERVICE_URL: string;
-    RC_SERVICE_URL: string;
-    DOCKERUI_SERVICE_URL: string;
-    NUMBER_OF_ITEMS_PER_PAGE: number;
-    NUMBER_OF_DISPLAYED_PAGES: number;
+declare module 'sextant' {
+    export = sextant;
 }
 
-interface IKubernetesBaseObject {
-    creationTimestamp: string;
-    selfLink: string;
-    apiVersion: string;
-    kind: string;
-    resourceVersion: number;
+declare module sextant {
+    interface IConfiguration {
+        EVENT_SERVICE_URL: string;
+        MINION_SERVICE_URL: string;
+        POD_SERVICE_URL: string;
+        RC_SERVICE_URL: string;
+        DOCKERUI_SERVICE_URL: string;
+        NUMBER_OF_ITEMS_PER_PAGE: number;
+        NUMBER_OF_DISPLAYED_PAGES: number;
+        TIMEOUT: number;
+    }
 }
 
-interface IKubernetesItemBaseObject {
-    id: string;
-    uid: string;
-    selfLink: string;
-    resourceVersion: number;
+declare module 'kubernetes' {
+    export = kubernetes;
 }
 
-interface IEventList extends IKubernetesBaseObject {
-    items: IEvent [];
-}
+declare module kubernetes {
 
-interface IEvent extends IKubernetesItemBaseObject {
-    namespace: string;
-    involvedObject: IInvolvedObject;
-    reason: string;
-    message: string;
-    source: string;
-    host: string;
-    timestamp: string;
-    firstTimestamp: string;
-    lastTimestamp: string;
-    count: number;
-}
+    interface IKubernetesBaseObject {
+        creationTimestamp: string;
+        selfLink: string;
+        apiVersion: string;
+        kind: string;
+        resourceVersion: number;
+    }
 
-interface IInvolvedObject {
-    kind: string;
-    namespace: string;
-    name: string;
-    uid: string;
-    fieldPath: string;
-}
+    interface IKubernetesItemBaseObject {
+        id: string;
+        uid: string;
+        selfLink: string;
+        resourceVersion: number;
+    }
 
-interface IMinionList extends IKubernetesBaseObject {
-    items: IMinion [];
-}
+    interface IEventList extends IKubernetesBaseObject {
+        items: IEvent [];
+    }
 
-interface IMinion extends IKubernetesItemBaseObject {
-    hostIP: string;
-    resources: IResources;
-    status: IStatus;
-}
+    interface IEvent extends IKubernetesItemBaseObject {
+        namespace: string;
+        involvedObject: IInvolvedObject;
+        reason: string;
+        message: string;
+        source: string;
+        host: string;
+        timestamp: string;
+        firstTimestamp: string;
+        lastTimestamp: string;
+        count: number;
+    }
 
-interface IResources {
-    capacity: ICapacity;
-}
+    interface IInvolvedObject {
+        kind: string;
+        namespace: string;
+        name: string;
+        uid: string;
+        fieldPath: string;
+    }
 
-interface ICapacity {
-    cpu: number;
-    memory: number;
-}
+    interface IMinionList extends IKubernetesBaseObject {
+        items: IMinion [];
+    }
 
-interface IStatus {
-    conditions: IConditions;
-    addresses: IAddress;
-    nodeInfo: INodeInfo;
-}
+    interface IMinion extends IKubernetesItemBaseObject {
+        hostIP: string;
+        resources: IResources;
+        status: IStatus;
+    }
 
-interface IConditions {
-    kind: string;
-    status: string;
-    lastProbeTime: string;
-    lastTransitionTime: string;
-    reason: string;
-}
+    interface IResources {
+        capacity: ICapacity;
+    }
 
-interface IAddress {
-    type: string;
-    address: string;
-}
+    interface ICapacity {
+        cpu: number;
+        memory: number;
+    }
 
-interface INodeInfo {
-    machineID: string;
-    systemUUID: string;
-}
+    interface IStatus {
+        conditions: IConditions;
+        addresses: IAddress;
+        nodeInfo: INodeInfo;
+    }
 
-interface IPodList extends IKubernetesBaseObject {
-    items: IPod [];
-}
+    interface IConditions {
+        kind: string;
+        status: string;
+        lastProbeTime: string;
+        lastTransitionTime: string;
+        reason: string;
+    }
 
-interface IPod extends IKubernetesItemBaseObject {
-    namespace: string;
-    generateName: string;
-    labels: any;
-    desiredState: IDesiredState;
-    currentState: ICurrentState;
-}
+    interface IAddress {
+        type: string;
+        address: string;
+    }
 
-interface IDesiredState {
-    manifest: IManifest;
-    host: string;
-}
+    interface INodeInfo {
+        machineID: string;
+        systemUUID: string;
+    }
 
-interface ICurrentState {
-    status: string;
-    hostIP: string;
-}
+    interface IPodList extends IKubernetesBaseObject {
+        items: IPod [];
+    }
 
-interface IManifest {
-    version: string;
-    id: string;
-    volumes: any;
-    containers: IContainer [];
-    restartPolicy:any;
-    dnsPolicy: string;
-}
+    interface IPod extends IKubernetesItemBaseObject {
+        namespace: string;
+        generateName: string;
+        labels: any;
+        desiredState: IDesiredState;
+        currentState: ICurrentState;
+    }
 
-interface IContainer {
-    name: string;
-    image: string;
-    ports: IPort [];
-    resources: any;
-    terminationMessagePath: string;
-    imagePullPolicy: string;
-    capabilities: any;
-}
+    interface IDesiredState {
+        manifest: IManifest;
+        host: string;
+    }
 
-interface IPort {
-    hostPort: number;
-    containerPort: number;
-    protocol: string;
-}
+    interface ICurrentState {
+        status: string;
+        hostIP: string;
+    }
 
-interface IReplicationControllerList extends IKubernetesBaseObject {
-    items: IPod [];
+    interface IManifest {
+        version: string;
+        id: string;
+        volumes: any;
+        containers: IContainer [];
+        restartPolicy:any;
+        dnsPolicy: string;
+    }
+
+    interface IContainer {
+        name: string;
+        image: string;
+        ports: IPort [];
+        resources: any;
+        terminationMessagePath: string;
+        imagePullPolicy: string;
+        capabilities: any;
+    }
+
+    interface IPort {
+        hostPort: number;
+        containerPort: number;
+        protocol: string;
+    }
+
+    interface IReplicationControllerList extends IKubernetesBaseObject {
+        items: IPod [];
+    }
+
 }

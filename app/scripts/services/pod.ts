@@ -1,26 +1,26 @@
 interface IPodService {
-    getPodList(): ng.IPromise <IPodList>
+    getPodList(): ng.IPromise <kubernetes.IPodList>
     deletePod(podId: string): ng.IPromise <void>
 }
 
 class PodService implements IPodService {
-    private httpService:ng.IHttpService;
-    private qService:ng.IQService;
-    private rootScope:ng.IScope;
+    private httpService: ng.IHttpService;
+    private qService: ng.IQService;
+    private rootScope: ng.IScope;
 
     static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
-    constructor(private $http:ng.IHttpService,
-                private $q:ng.IQService,
-                private $rootScope:ng.IScope,
-                private configuration:IConfiguration) {
+    constructor(private $http: ng.IHttpService,
+                private $q: ng.IQService,
+                private $rootScope: ng.IScope,
+                private configuration: sextant.IConfiguration) {
         this.httpService = $http;
         this.qService = $q;
         this.rootScope = $rootScope;
         this.configuration = configuration;
     }
 
-    getPodList(): ng.IPromise <IPodList> {
+    getPodList(): ng.IPromise <kubernetes.IPodList> {
         var deferred = this.qService.defer();
         this.httpService.get(this.configuration.POD_SERVICE_URL)
             .success((data) => deferred.resolve(data))

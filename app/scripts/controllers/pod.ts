@@ -7,19 +7,19 @@ interface IPodListScope extends ng.IScope {
 }
 
 class PodListController {
-    pods:IPod [];
-    displayedPods:IPod [];
-    itemsByPage:number;
-    displayedPages:number;
+    pods: kubernetes.IPod [];
+    displayedPods: kubernetes.IPod [];
+    itemsByPage: number;
+    displayedPages: number;
 
     static $inject = ['$scope', '$routeParams', 'podService', 'configuration'];
 
     constructor(private $scope,
                 private $routeParams,
                 private podService:IPodService,
-                private configuration:IConfiguration) {
+                private configuration:sextant.IConfiguration) {
 
-        podService.getPodList().then((data:IPodList) => {
+        podService.getPodList().then((data: kubernetes.IPodList) => {
             this.pods = data.items;
             this.displayedPods = [].concat(data.items);
         });
@@ -30,7 +30,7 @@ class PodListController {
         $scope.vm = this;
     }
 
-    rowClass(index:number):string {
+    rowClass(index: number):string {
         if (this.displayedPods[index].currentState.status == 'Running') {
             return 'success'
         }
@@ -42,10 +42,10 @@ class PodListController {
         return 'danger'
     }
 
-    deletePod(index:number):void {
+    deletePod(index: number):void {
         var podId = this.displayedPods[index].id;
         this.podService.deletePod(podId).then(() => {
-            this.podService.getPodList().then((data:IPodList) => {
+            this.podService.getPodList().then((data: kubernetes.IPodList) => {
                 this.displayedPods = data.items;
             });
         });

@@ -5,8 +5,8 @@ interface IEventListScope extends ng.IScope {
 }
 
 class EventListController {
-    events: IEvent [];
-    displayedEvents: IEvent [];
+    events: kubernetes.IEvent [];
+    displayedEvents: kubernetes.IEvent [];
 
     search: string;
     itemsByPage: number;
@@ -17,11 +17,11 @@ class EventListController {
     constructor(private $scope,
                 private $routeParams,
                 private eventService: IEventService,
-                private configuration: IConfiguration) {
+                private configuration: sextant.IConfiguration) {
 
         this.search = $routeParams.search;
 
-        eventService.getEventList().then((data: IEventList) =>  {
+        eventService.getEventList().then((data: kubernetes.IEventList) =>  {
             this.events = data.items;
             this.displayedEvents = [].concat(data.items);
         });
