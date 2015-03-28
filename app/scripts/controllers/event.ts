@@ -5,8 +5,8 @@ interface IEventListScope extends ng.IScope {
 }
 
 class EventListController {
-    events: kubernetes.IEvent [];
-    displayedEvents: kubernetes.IEvent [];
+    events: kubernetes.IEvent [] = [];
+    displayedEvents: kubernetes.IEvent [] = [];
 
     searchterm: string;
     itemsByPage: number;

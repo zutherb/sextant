@@ -11,6 +11,7 @@ var sextant = angular.module('sextant', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ngPieChart',
     'smart-table',
     'sextant.config',
     'LocalStorageModule'

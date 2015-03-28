@@ -1,3 +1,9 @@
-<div class="col-md-12">
-
+<div class="container" ng-controller="PieChartController">
+    <div class="row">
+        <div class="col-lg-2">
+            <ngpiechart progression="vm.progression" total="vm.total">
+                <div>Pods ({{vm.progression}}/{{vm.total}}) are running</div>
+            </ngpiechart>
+        </div>
+    </div>
 </div>

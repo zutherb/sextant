@@ -7,8 +7,8 @@ interface IPodListScope extends ng.IScope {
 }
 
 class PodListController {
-    pods: kubernetes.IPod [];
-    displayedPods: kubernetes.IPod [];
+    pods: kubernetes.IPod [] = [];
+    displayedPods: kubernetes.IPod [] = [];
     itemsByPage: number;
     displayedPages: number;
 
