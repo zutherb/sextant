@@ -1,8 +1,14 @@
-<div class="container" ng-controller="PieChartController">
+<div class="container" ng-controller="DashboardController">
     <div class="row">
         <div class="col-lg-2">
-            <ngpiechart progression="vm.progression" total="vm.total">
-                <div>Pods ({{vm.progression}}/{{vm.total}}) are running</div>
+            <ngpiechart progression="vm.minionProgression" total="vm.minionTotal">
+                <div>Minions ({{vm.minionProgression}}/{{vm.minionTotal}}) are ready</div>
+            </ngpiechart>
+        </div>
+        <div class="col-lg-1" />
+        <div class="col-lg-2">
+            <ngpiechart progression="vm.podProgression" total="vm.podTotal">
+                <div>Pods ({{vm.podProgression}}/{{vm.podTotal}}) are running</div>
             </ngpiechart>
         </div>
     </div>

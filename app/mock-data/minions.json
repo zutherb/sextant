@@ -2,34 +2,24 @@
 
   "kind": "MinionList",
   "creationTimestamp": null,
-  "selfLink": "/api/v1beta2/minions",
-  "resourceVersion": 6700,
-  "apiVersion": "v1beta2",
-  "items":
+  "selfLink": "/api/v1beta1/minions",
+  "resourceVersion": 53844,
+  "apiVersion": "v1beta1",
+  "minions":
 
   [
 
     {
 
       "id": "172.17.8.102",
-      "uid": "a9e6f7fc-cffd-11e4-a42a-080027b9214b",
-      "creationTimestamp": "2015-03-21T19:08:31Z",
-      "selfLink": "/api/v1beta2/minions/172.17.8.102",
-      "resourceVersion": 6694,
+      "uid": "321e469b-d461-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T09:11:04Z",
+      "selfLink": "/api/v1beta1/minions/172.17.8.102",
+      "resourceVersion": 53834,
       "hostIP": "172.17.8.102",
-      "resources":
-
-      {
-
-        "capacity":
-
-        {
-          "cpu": "2",
-          "memory": 1574793216
-        }
-
-      },
+      "resources": { },
       "status":
+
       {
 
         "conditions":
@@ -39,51 +29,25 @@
           {
             "kind": "Ready",
             "status": "Full",
-            "lastProbeTime": "2015-03-21T21:04:31Z",
-            "lastTransitionTime": null,
-            "reason": "kubelet is posting ready status"
+            "lastProbeTime": "2015-03-27T23:51:15Z",
+            "lastTransitionTime": "2015-03-27T09:12:30Z",
+            "reason": "Node health check succeeded: kubelet /healthz endpoint returns ok"
           }
-
-        ],
-        "addresses":
-        [
-
-          {
-            "type": "LegacyHostIP",
-            "address": "172.17.8.102"
-          }
-
-        ],
-        "nodeInfo":
-
-        {
-          "machineID": "a4dc3862b9364f96bf284701157341d7",
-          "systemUUID": "CC0FC9D0-C803-4F06-A49D-3F8A9E4A1804"
-        }
+        ]
       }
 
     },
     {
 
       "id": "172.17.8.103",
-      "uid": "a9e64458-cffd-11e4-a42a-080027b9214b",
-      "creationTimestamp": "2015-03-21T19:08:31Z",
-      "selfLink": "/api/v1beta2/minions/172.17.8.103",
-      "resourceVersion": 6692,
+      "uid": "321f7d9a-d461-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T09:11:04Z",
+      "selfLink": "/api/v1beta1/minions/172.17.8.103",
+      "resourceVersion": 53835,
       "hostIP": "172.17.8.103",
-      "resources":
-
-      {
-
-        "capacity":
-
-        {
-          "cpu": "2",
-          "memory": 1574793216
-        }
-
-      },
+      "resources": { },
       "status":
+
       {
 
         "conditions":
@@ -93,51 +57,57 @@
           {
             "kind": "Ready",
             "status": "Full",
-            "lastProbeTime": "2015-03-21T21:04:30Z",
-            "lastTransitionTime": null,
-            "reason": "kubelet is posting ready status"
+            "lastProbeTime": "2015-03-27T23:51:15Z",
+            "lastTransitionTime": "2015-03-27T09:12:30Z",
+            "reason": "Node health check succeeded: kubelet /healthz endpoint returns ok"
           }
-
-        ],
-        "addresses":
-        [
-
-          {
-            "type": "LegacyHostIP",
-            "address": "172.17.8.103"
-          }
-
-        ],
-        "nodeInfo":
-
-        {
-          "machineID": "8298ef0050864877a743af79ee8cbb2c",
-          "systemUUID": "5C48390F-A330-4029-87E1-EE1FAA7DDFCC"
-        }
+        ]
       }
 
     },
     {
 
       "id": "172.17.8.104",
-      "uid": "a9e7360e-cffd-11e4-a42a-080027b9214b",
-      "creationTimestamp": "2015-03-21T19:08:31Z",
-      "selfLink": "/api/v1beta2/minions/172.17.8.104",
-      "resourceVersion": 6684,
+      "uid": "321ef13f-d461-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T09:11:04Z",
+      "selfLink": "/api/v1beta1/minions/172.17.8.104",
+      "resourceVersion": 53836,
       "hostIP": "172.17.8.104",
-      "resources":
+      "resources": { },
+      "status":
 
       {
 
-        "capacity":
+        "conditions":
 
-        {
-          "cpu": "2",
-          "memory": 1574793216
-        }
+        [
 
-      },
+          {
+            "kind": "Ready",
+            "status": "None",
+            "lastProbeTime": "2015-03-27T23:51:33Z",
+            "lastTransitionTime": "2015-03-27T23:51:05Z",
+            "reason": "Node health check failed: kubelet /healthz endpoint returns not ok"
+          }
+        ]
+      }
+    }
+
+  ],
+  "items":
+  [
+
+    {
+
+      "id": "172.17.8.102",
+      "uid": "321e469b-d461-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T09:11:04Z",
+      "selfLink": "/api/v1beta1/minions/172.17.8.102",
+      "resourceVersion": 53834,
+      "hostIP": "172.17.8.102",
+      "resources": { },
       "status":
+
       {
 
         "conditions":
@@ -147,27 +117,67 @@
           {
             "kind": "Ready",
             "status": "Full",
-            "lastProbeTime": "2015-03-21T21:04:22Z",
-            "lastTransitionTime": null,
-            "reason": "kubelet is posting ready status"
+            "lastProbeTime": "2015-03-27T23:51:15Z",
+            "lastTransitionTime": "2015-03-27T09:12:30Z",
+            "reason": "Node health check succeeded: kubelet /healthz endpoint returns ok"
           }
+        ]
+      }
 
-        ],
-        "addresses":
+    },
+    {
+
+      "id": "172.17.8.103",
+      "uid": "321f7d9a-d461-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T09:11:04Z",
+      "selfLink": "/api/v1beta1/minions/172.17.8.103",
+      "resourceVersion": 53835,
+      "hostIP": "172.17.8.103",
+      "resources": { },
+      "status":
+
+      {
+
+        "conditions":
+
         [
 
           {
-            "type": "LegacyHostIP",
-            "address": "172.17.8.104"
+            "kind": "Ready",
+            "status": "Full",
+            "lastProbeTime": "2015-03-27T23:51:15Z",
+            "lastTransitionTime": "2015-03-27T09:12:30Z",
+            "reason": "Node health check succeeded: kubelet /healthz endpoint returns ok"
           }
+        ]
+      }
 
-        ],
-        "nodeInfo":
+    },
+    {
 
-        {
-          "machineID": "f84ea0b8675d41808ab387035d00b539",
-          "systemUUID": "759D0D0A-EE34-4050-94E0-6E7D29F82442"
-        }
+      "id": "172.17.8.104",
+      "uid": "321ef13f-d461-11e4-9bd5-080027a81583",
+      "creationTimestamp": "2015-03-27T09:11:04Z",
+      "selfLink": "/api/v1beta1/minions/172.17.8.104",
+      "resourceVersion": 53836,
+      "hostIP": "172.17.8.104",
+      "resources": { },
+      "status":
+
+      {
+
+        "conditions":
+
+        [
+
+          {
+            "kind": "Ready",
+            "status": "None",
+            "lastProbeTime": "2015-03-27T23:51:33Z",
+            "lastTransitionTime": "2015-03-27T23:51:05Z",
+            "reason": "Node health check failed: kubelet /healthz endpoint returns not ok"
+          }
+        ]
       }
     }
   ]

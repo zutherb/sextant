@@ -1,3 +1,6 @@
+var _: UnderscoreStatic;
+var $: JQueryStatic;
+
 declare module 'sextant' {
     export = sextant;
 }

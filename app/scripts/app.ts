@@ -1,8 +1,5 @@
 /// <reference path="types.ts"/>
 
-var _:UnderscoreStatic;
-var $:JQueryStatic;
-
 var sextant = angular.module('sextant', [
     'ui.bootstrap',
     'ngAnimate',
