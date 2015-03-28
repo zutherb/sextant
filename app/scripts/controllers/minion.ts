@@ -1,3 +1,6 @@
+/// <reference path="../__all.ts"/>
+/// <reference path="../app.ts"/>
+/// <reference path="../types.ts"/>
 /// <reference path="../services/minion.ts"/>
 /// <reference path="../services/dockerui.ts"/>
 
@@ -32,9 +35,9 @@ class MinionListController {
         return _.isEmpty(pods);
     }
 
-    getDockerUiPort(hostIP: string): number {
+    getDockerUiId(hostIP: string): string {
         var pods = _.filter(this.dockerUiPods, (pod: kubernetes.IPod) => pod.currentState.hostIP == hostIP);
-        return pods[0].desiredState.manifest.containers[0].ports[0].hostPort;
+        return pods[0].id;
     }
 }
 

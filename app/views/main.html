@@ -7,6 +7,14 @@
                     data="vm.minionStatusReportData"
                     options="vm.options"
                     labels="vm.minionStatusReportLabels"></canvas>
+            <div class="row" ng-repeat="(key, value) in vm.minionStatusReport">
+                <div class="col-lg-3">
+                    {{key}}:
+                </div>
+                <div class="col-lg-1">
+                    {{value}}
+                </div>
+            </div>
         </div>
         <div class="col-lg-4">
             <h2>Pods</h2>
@@ -15,6 +23,46 @@
                     data="vm.podStatusReportData"
                     options="vm.options"
                     labels="vm.podStatusReportLabels"></canvas>
+            <div class="row" ng-repeat="(key, value) in vm.podStatusReport">
+                <div class="col-lg-3">
+                    {{key}}:
+                </div>
+                <div class="col-lg-1">
+                    {{value}}
+                </div>
+            </div>
         </div>
+        <div class="col-lg-4">
+            <h2>Replication Controller</h2>
+            <canvas id="pods"
+                    class="chart chart-radar"
+                    data="vm.rcReportData"
+                    options="vm.options"
+                    labels="vm.rcStatusReportLabels"></canvas>
+            <div class="row" ng-repeat="(key, value) in vm.rcStatusReport">
+                <div class="col-lg-3">
+                    {{key}}:&nbsp;
+                </div>
+                <div class="col-lg-2">
+                    {{value.desired}} / {{value.current}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <h2>Events</h2>
+            <canvas id="line"
+                    class="chart chart-line"
+                    data="vm.eventStatusReportData"
+                    labels="vm.eventStatusReportLabels"
+                    legend="true"
+                    series="vm.eventStatusReportSeries"
+                    options="vm.options"
+                    click="vm.onClick">
+            </canvas>
+        </div>
+        <div class="col-lg-2"></div>
     </div>
 </div>

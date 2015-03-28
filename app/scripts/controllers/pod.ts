@@ -1,3 +1,6 @@
+/// <reference path="../__all.ts"/>
+/// <reference path="../app.ts"/>
+/// <reference path="../types.ts"/>
 /// <reference path="../services/pod.ts"/>
 
 interface IPodListScope extends ng.IScope {

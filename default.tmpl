@@ -18,4 +18,14 @@ server {
 
         proxy_pass https://{{ .Env.KUBERNETES_SERVICE_HOST }}:{{ .Env.KUBERNETES_SERVICE_PORT }};
     }
+
+    location /api/v1beta2/proxy/ns/default/pods/ {
+        rewrite /api/v1beta2/proxy/ns/default/pods/(.*) /api/v1beta2/proxy/pods/$1  break;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        proxy_pass https://{{ .Env.KUBERNETES_SERVICE_HOST }}:{{ .Env.KUBERNETES_SERVICE_PORT }};
+    }
 }

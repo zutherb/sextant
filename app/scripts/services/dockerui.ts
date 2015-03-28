@@ -1,3 +1,7 @@
+/// <reference path="../__all.ts"/>
+/// <reference path="../app.ts"/>
+/// <reference path="../types.ts"/>
+
 interface IDockerUiService {
     getPodList(): ng.IPromise <kubernetes.IPodList>
 }

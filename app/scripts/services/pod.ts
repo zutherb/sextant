@@ -1,3 +1,7 @@
+/// <reference path="../__all.ts"/>
+/// <reference path="../app.ts"/>
+/// <reference path="../types.ts"/>
+
 interface IPodService {
     getPodList(): ng.IPromise <kubernetes.IPodList>
     deletePod(podId: string): ng.IPromise <void>
@@ -17,7 +21,6 @@ class PodService implements IPodService {
         this.httpService = $http;
         this.qService = $q;
         this.rootScope = $rootScope;
-        this.configuration = configuration;
     }
 
     getPodList(): ng.IPromise <kubernetes.IPodList> {

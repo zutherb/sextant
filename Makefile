@@ -42,6 +42,9 @@ serve:
 release: clean install build
 	docker push zutherb/sextant
 
+fast-release: build
+	docker push zutherb/sextant
+
 deploy:
 	kubectl create -f kubernetes/sextant.json
 

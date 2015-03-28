@@ -52,7 +52,7 @@
         }
       },
       "currentState": {
-        "replicas": 2,
+        "replicas": 1,
         "podTemplate": {
           "desiredState": {
             "manifest": {
@@ -123,7 +123,7 @@
         }
       },
       "currentState": {
-        "replicas": 3,
+        "replicas": 1,
         "podTemplate": {
           "desiredState": {
             "manifest": {

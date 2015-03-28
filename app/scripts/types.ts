@@ -1,5 +1,8 @@
+/// <reference path='./__all.ts' />
+
 var _: UnderscoreStatic;
 var $: JQueryStatic;
+var moment: moment.MomentStatic;
 
 declare module 'sextant' {
     export = sextant;
@@ -155,7 +158,19 @@ declare module kubernetes {
     }
 
     interface IReplicationControllerList extends IKubernetesBaseObject {
-        items: IPod [];
+        items: IReplicationController [];
     }
 
+    interface IReplicationController extends IKubernetesItemBaseObject {
+        desiredState: IReplicationControllerDesiredState;
+        currentState: IReplicationControllerCurrentState;
+    }
+
+    interface IReplicationControllerCurrentState {
+        replicas: number;
+    }
+
+    interface IReplicationControllerDesiredState {
+        replicas: number;
+    }
 }

@@ -1,3 +1,7 @@
+/// <reference path="../__all.ts"/>
+/// <reference path="../app.ts"/>
+/// <reference path="../types.ts"/>
+
 interface IMinionService {
     getMinionList(): ng.IPromise <kubernetes.IMinionList>
 }

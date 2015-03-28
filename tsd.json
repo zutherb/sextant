@@ -28,6 +28,9 @@
     },
     "angularLocalStorage/angularLocalStorage.d.ts": {
       "commit": "be0b6b394f77a59e192ad7cfec18078706e44db5"
+    },
+    "moment/moment.d.ts": {
+      "commit": "be0b6b394f77a59e192ad7cfec18078706e44db5"
     }
   }
 }
