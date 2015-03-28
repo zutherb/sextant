@@ -1,15 +1,20 @@
 <div class="container" ng-controller="DashboardController">
     <div class="row">
-        <div class="col-lg-2">
-            <ngpiechart progression="vm.minionProgression" total="vm.minionTotal">
-                <div>Minions ({{vm.minionProgression}}/{{vm.minionTotal}}) are ready</div>
-            </ngpiechart>
+        <div class="col-lg-4">
+            <h2>Minions</h2>
+            <canvas id="minions"
+                    class="chart chart-doughnut"
+                    data="vm.minionStatusReportData"
+                    options="vm.options"
+                    labels="vm.minionStatusReportLabels"></canvas>
         </div>
-        <div class="col-lg-1" />
-        <div class="col-lg-2">
-            <ngpiechart progression="vm.podProgression" total="vm.podTotal">
-                <div>Pods ({{vm.podProgression}}/{{vm.podTotal}}) are running</div>
-            </ngpiechart>
+        <div class="col-lg-4">
+            <h2>Pods</h2>
+            <canvas id="pods"
+                    class="chart chart-doughnut"
+                    data="vm.podStatusReportData"
+                    options="vm.options"
+                    labels="vm.podStatusReportLabels"></canvas>
         </div>
     </div>
 </div>
