@@ -34,7 +34,7 @@ var sextant = angular.module('sextant', [
         .when('/events', {
             templateUrl: 'views/events.html'
         })
-        .when('/events/:search', {
+        .when('/events/:searchterm', {
             templateUrl: 'views/events.html'
         })
         .otherwise({

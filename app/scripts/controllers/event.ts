@@ -8,7 +8,7 @@ class EventListController {
     events: kubernetes.IEvent [];
     displayedEvents: kubernetes.IEvent [];
 
-    search: string;
+    searchterm: string;
     itemsByPage: number;
     displayedPages: number;
 
@@ -19,7 +19,7 @@ class EventListController {
                 private eventService: IEventService,
                 private configuration: sextant.IConfiguration) {
 
-        this.search = $routeParams.search;
+        this.searchterm = $routeParams.searchterm;
 
         eventService.getEventList().then((data: kubernetes.IEventList) =>  {
             this.events = data.items;
