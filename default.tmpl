@@ -10,12 +10,12 @@ server {
 	server_name _;
 
 	location /api/kubernetes/ {
-      rewrite /api/kubernetes/(.*) /api/v1beta2/$1  break;
+        rewrite /api/kubernetes/(.*) /api/v1beta2/$1  break;
 
-      proxy_set_header Host $host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
-      proxy_pass http://{{ .Env.KUBERNETES_RO_PORT_80_TCP_ADDR }}:{{ .Env.KUBERNETES_RO_PORT_80_TCP_PORT }};
-  }
+        proxy_pass http://{{ .Env.KUBERNETES_SERVICE_HOST }}:{{ .Env.KUBERNETES_SERVICE_PORT }};
+    }
 }

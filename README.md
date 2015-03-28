@@ -13,4 +13,4 @@ This project is not complete and is still under heavy development.
 ### Container Quickstart 
 
 1. Run: `kubectl create -f kubernetes/sextant.json`
-2. Open your browser to `http://<sextant host ip>:9000`
+2. Open your browser to `http://<sextant host ip>:9100`
