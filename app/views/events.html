@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in vm.displayedEvents | orderBy:'-timestamp'">
+            <tr ng-repeat="item in vm.displayedRcs | orderBy:'-timestamp'">
                 <td>{{item.timestamp | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.timestamp | date:'HH:mm:ss'}}</td>
                 <td>{{item.involvedObject.name}}</td>

@@ -1,0 +1,35 @@
+<h1>Replication Controller</h1>
+<div class="table-responsive">
+    <table st-table="vm.displayedRcs" st-safe-src="vm.rcs" class="table table-striped" ng-controller="ReplicationControllerListController">
+        <thead>
+            <tr>
+                <th st-sort="id">CONTROLLER</th>
+                <th>CONTAINER(S)</th>
+                <th>IMAGE(S)</th>
+                <th st-sort="desiredState.replicaSelector">SELECTOR</th>
+                <th st-sort="desiredState.replicas">REPLICAS</th>
+            </tr>
+            <tr>
+                <th colspan="8">
+                    <input st-search class="form-control" placeholder="global search ..." type="search" ng-change="" ng-model="vm.searchterm" />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in vm.displayedRcs">
+                <td>{{item.id}}</td>
+                <td></td>
+                <td></td>
+                <td>{{item.desiredState.replicaSelector}}</td>
+                <td>{{item.desiredState.replicas}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

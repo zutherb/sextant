@@ -3,7 +3,7 @@
 /// <reference path="../types.ts"/>
 /// <reference path="../services/pod.ts"/>
 /// <reference path="../services/minion.ts"/>
-/// <reference path="../services/replicationController.ts"/>
+/// <reference path="../services/rc.ts"/>
 /// <reference path="../services/event.ts"/>
 
 class DashboardController {
