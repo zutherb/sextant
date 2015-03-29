@@ -33,17 +33,17 @@ class PodListController {
         $scope.vm = this;
     }
 
-    rowClass(index: number):string {
-        if (this.displayedPods[index].currentState.status == 'Running') {
-            return 'success'
-        }
-        if (this.displayedPods[index].currentState.status == 'Pending' ||
-            this.displayedPods[index].currentState.status == 'Waiting' ||
-            this.displayedPods[index].currentState.status == 'Unknown') {
-            return 'warning'
-        }
-        return 'danger'
-    }
+    //rowClass(index: number):string {
+    //    if (this.displayedPods[index].currentState.status == 'Running') {
+    //        return 'success'
+    //    }
+    //    if (this.displayedPods[index].currentState.status == 'Pending' ||
+    //        this.displayedPods[index].currentState.status == 'Waiting' ||
+    //        this.displayedPods[index].currentState.status == 'Unknown') {
+    //        return 'warning'
+    //    }
+    //    return 'danger'
+    //}
 
     deletePod(index: number):void {
         var podId = this.displayedPods[index].id;

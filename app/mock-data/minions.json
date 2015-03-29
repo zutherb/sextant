@@ -162,8 +162,11 @@
       "resourceVersion": 53836,
       "hostIP": "172.17.8.104",
       "resources": { },
+      "labels": {
+        "name": "Node-01",
+        "namespace": "default"
+      },
       "status":
-
       {
 
         "conditions":

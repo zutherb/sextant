@@ -18,8 +18,8 @@
         <tbody>
             <tr ng-repeat="item in vm.displayedLoadbalancers">
                 <td>{{item.id}}</td>
-                <td>{{item.labels}}</td>
-                <td>{{item.selector}}</td>
+                <td><keyvaluelist data="item.labels"></keyvaluelist></td>
+                <td><keyvaluelist data="item.selector"></keyvaluelist></td>
                 <td>{{item.portalIP}}</td>
                 <td>{{item.port}}</td>
             </tr>

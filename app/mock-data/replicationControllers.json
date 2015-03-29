@@ -37,6 +37,20 @@
                   "terminationMessagePath": "/dev/termination-log",
                   "imagePullPolicy": "PullIfNotPresent",
                   "capabilities": {}
+                },
+                {
+                  "name": "mongodb",
+                  "image": "dockerfile/mongodb",
+                  "ports": [
+                    {
+                      "containerPort": 27017,
+                      "protocol": "TCP"
+                    }
+                  ],
+                  "resources": {},
+                  "terminationMessagePath": "/dev/termination-log",
+                  "imagePullPolicy": "PullIfNotPresent",
+                  "capabilities": {}
                 }
               ],
               "restartPolicy": {
