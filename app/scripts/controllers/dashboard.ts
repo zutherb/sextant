@@ -24,6 +24,8 @@ class DashboardController {
     eventStatusReportData: any [] = [];
     eventStatusReport: any;
 
+    lastTwoDaysEvents: kubernetes.IEvent [] = [];
+
     options = {
         animate : false,
         animateRotate : false,
@@ -98,17 +100,19 @@ class DashboardController {
             var eventStatusReport = {};
             _.each(data.items, (event: kubernetes.IEvent) => {
                 var timestamp = moment(event.timestamp);
-                for(var i = 0; i < 24; i++) {
-                    var key: string = timestamp.year() + "/" + (timestamp.month() + 1) + "/" + timestamp.date() + " " + i + ":00";
+                if(moment(event.timestamp).isAfter(moment().subtract(2, 'days'))){
+                    for(var i = 0; i < 24; i++) {
+                        var key: string = timestamp.year() + "/" + (timestamp.month() + 1) + "/" + timestamp.date() + " " + i + ":00";
+                        if (eventStatusReport[key] === undefined) {
+                            eventStatusReport[key] = 0;
+                        }
+                    }
+                    var key: string = timestamp.year() + "/" + (timestamp.month() + 1) + "/" + timestamp.date() + " " + timestamp.hour() + ":00";
                     if (eventStatusReport[key] === undefined) {
                         eventStatusReport[key] = 0;
                     }
+                    eventStatusReport[key] = eventStatusReport[key] + 1;
                 }
-                var key: string = timestamp.year() + "/" + (timestamp.month() + 1) + "/" + timestamp.date() + " " + timestamp.hour() + ":00";
-                if (eventStatusReport[key] === undefined) {
-                    eventStatusReport[key] = 0;
-                }
-                eventStatusReport[key] = eventStatusReport[key] + 1;
             });
 
             this.eventStatusReportLabels = Object.keys(eventStatusReport);

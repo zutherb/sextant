@@ -6,31 +6,31 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "jquery/jquery.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "angularjs/angular.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "angularjs/angular-route.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "angularjs/angular-resource.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "bootstrap/bootstrap.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "underscore/underscore.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "angular-ui-bootstrap/angular-ui-bootstrap.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "angularLocalStorage/angularLocalStorage.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     },
     "moment/moment.d.ts": {
-      "commit": "2979a4710a3aebe8f7badbec4e1cf84f86a8b99c"
+      "commit": "eb1de10a94d34e57c594ba558bbd5d47c23e694d"
     }
   }
 }
