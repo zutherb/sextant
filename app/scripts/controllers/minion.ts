@@ -31,13 +31,17 @@ class MinionListController {
     }
 
     isDockerUiNotRunningOnHost(hostIP: string): boolean {
-        var pods = _.filter(this.dockerUiPods, (pod: kubernetes.IPod) => pod.currentState.hostIP == hostIP);
+        var pods = this.podsByHost(hostIP);
         return _.isEmpty(pods);
     }
 
     getDockerUiId(hostIP: string): string {
-        var pods = _.filter(this.dockerUiPods, (pod: kubernetes.IPod) => pod.currentState.hostIP == hostIP);
+        var pods = this.podsByHost(hostIP);
         return pods[0].id;
+    }
+
+    private podsByHost(hostIP) {
+        return _.filter(this.dockerUiPods, (pod:kubernetes.IPod) => pod.currentState.hostIP == hostIP);
     }
 }
 

@@ -11,12 +11,14 @@
         <tbody>
         <tr ng-repeat="minion in vm.minions">
             <td>{{minion.hostIP}}&nbsp;
-                <a ng-hide="vm.isDockerUiNotRunningOnHost(minion.hostIP)" ng-href="/#/frame?url=/api/kubernetes/proxy/pods/{{vm.getDockerUiId(minion.hostIP)}}">
+                <a ng-hide="vm.isDockerUiNotRunningOnHost(minion.hostIP)"
+                   ng-href="/#/frame?url=/api/kubernetes/proxy/pods/{{vm.getDockerUiId(minion.hostIP)}}/#/">
                     <button type="button" class="btn btn-sm" data-toggle="tooltip" data-placement="top"
                             title="Tooltip on top">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </button>
                 </a>
+            </td>
             <td>{{minion.labels}}</td>
             <td>{{minion.status.conditions.0.kind}}</td>
         </tr>
