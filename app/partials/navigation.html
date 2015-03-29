@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">
+                <img src="/images/sextant_logo.svg"/>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="item in items" ng-class="cssClass(item.hash)">
+                    <a ng-href="{{item.hash}}">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
