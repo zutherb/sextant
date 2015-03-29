@@ -14,6 +14,7 @@ declare module sextant {
         MINION_SERVICE_URL: string;
         POD_SERVICE_URL: string;
         RC_SERVICE_URL: string;
+        LOADBALANCER_SERVICE_URL: string;
         DOCKERUI_SERVICE_URL: string;
         NUMBER_OF_ITEMS_PER_PAGE: number;
         NUMBER_OF_DISPLAYED_PAGES: number;
@@ -172,5 +173,19 @@ declare module kubernetes {
 
     interface IReplicationControllerDesiredState {
         replicas: number;
+    }
+
+    interface ILoadBalancerList extends IKubernetesBaseObject {
+        items: ILoadBalancer [];
+    }
+
+    interface ILoadBalancer extends IKubernetesItemBaseObject {
+        port: number;
+        protocol: string;
+        labels: any;
+        selector: any;
+        containerPort: number;
+        portalIP: string;
+        sessionAffinity: string;
     }
 }
