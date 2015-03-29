@@ -1,7 +1,3 @@
-/// <reference path="../__all.ts"/>
-/// <reference path="../app.ts"/>
-/// <reference path="../types.ts"/>
-
 class FrameController {
     url: string;
 
