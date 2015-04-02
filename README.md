@@ -6,7 +6,7 @@ This project is not complete and is still under heavy development.
 
 ![Dashboard](/doc/dashboard.png)
 
-![Dashboard](/doc/dashboard.png)
+![Dashboard](/doc/pods.png)
 
 ## Goals
 
