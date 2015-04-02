@@ -459,7 +459,8 @@ module.exports = function (grunt) {
                             '*.eot',
                             '*.svg',
                             '*.ttf',
-                            '*.woff'
+                            '*.woff',
+                            '*.woff2'
                     ],
                     dest: '<%= yeoman.dist %>/fonts'
                 }]
@@ -472,7 +473,8 @@ module.exports = function (grunt) {
                         '*.eot',
                         '*.svg',
                         '*.ttf',
-                        '*.woff'
+                        '*.woff',
+                        '*.woff2'
                     ],
                     dest: '.tmp/fonts'
                 }]

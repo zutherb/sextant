@@ -4,6 +4,10 @@ Sextant is a web interface for the [Kubernetes Remote API](http://kubernetes.io/
 to provide a pure client side implementation so it is effortless to connect and manage [Kubernetes](http://kubernetes.io/). 
 This project is not complete and is still under heavy development.
 
+![Dashboard](/doc/dashboard.png)
+
+![Dashboard](/doc/dashboard.png)
+
 ## Goals
 
 * Minimal dependencies - I really want to keep this project a pure html/js app.
