@@ -1,10 +1,13 @@
 {
     "EVENT_SERVICE_URL": "/api/kubernetes/events",
     "MINION_SERVICE_URL": "/api/kubernetes/minions",
-    "POD_SERVICE_URL": "/api/kubernetes/pods",
+    "POD_GET_URL": "/api/kubernetes/pods",
+    "PODS_GET_URL": "/api/kubernetes/pods",
+    "POD_DELETE_URL": "/api/kubernetes/pods",
     "RC_SERVICE_URL": "/api/kubernetes/replicationControllers",
     "LOADBALANCER_SERVICE_URL": "/api/kubernetes/services",
     "DOCKERUI_SERVICE_URL": "/api/kubernetes/pods/?labels=name%3Ddockerui",
+    "DOCKER_HUB_SEARCH_URL": "/api/docker/hub/v1/search",
     "NUMBER_OF_ITEMS_PER_PAGE": 20,
     "NUMBER_OF_DISPLAYED_PAGES": 5,
     "TIMEOUT": 3000

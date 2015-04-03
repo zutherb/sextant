@@ -1,6 +1,6 @@
 /// <reference path="../app.ts"/>
 /// <reference path="../types.ts"/>
-
+'use strict';
 
 interface INavigationScope extends ng.IScope {
     items: any;

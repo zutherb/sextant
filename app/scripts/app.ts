@@ -1,4 +1,5 @@
 /// <reference path="types.ts"/>
+'use strict';
 
 var sextant = angular.module('sextant', [
     'ui.bootstrap',
@@ -8,6 +9,7 @@ var sextant = angular.module('sextant', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'angucomplete-alt',
     'chart.js',
     'smart-table',
     'sextant.config',
@@ -22,6 +24,12 @@ var sextant = angular.module('sextant', [
         })
         .when('/pods', {
             templateUrl: 'views/pods.html'
+        })
+        .when('/pod', {
+            templateUrl: 'views/pod.html'
+        })
+        .when('/pod/:podid', {
+            templateUrl: 'views/pod.html'
         })
         .when('/rc', {
             templateUrl: 'views/rcs.html'

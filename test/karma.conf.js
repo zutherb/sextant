@@ -7,7 +7,7 @@ module.exports = function (config) {
     config.set({
         preprocessors: {
             '**/*.ts': ['typescript'],
-            '**/js/page/**/*.js': ['coverage']
+            '**/*.js': ['coverage']
         },
         typescriptPreprocessor: {
             // options passed to the typescript compiler

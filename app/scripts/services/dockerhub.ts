@@ -3,11 +3,11 @@
 /// <reference path="../types.ts"/>
 'use strict';
 
-interface IEventService {
-    getEventList(): ng.IPromise <kubernetes.IEventList>
+interface IDockerHubService {
+    getSearchResultItems(searchterm: string): ng.IPromise <docker.ISearchResult>
 }
 
-class EventService implements IEventService {
+class DockerHubService implements IDockerHubService {
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
@@ -26,15 +26,16 @@ class EventService implements IEventService {
         this.timeoutService = $timeout;
     }
 
-    getEventList(): ng.IPromise <kubernetes.IEventList> {
+    getSearchResultItems(searchterm: string): ng.IPromise <docker.ISearchResult> {
         var deferred = this.qService.defer();
         this.timeoutService(() => {
-            this.httpService.get(this.configuration.EVENT_SERVICE_URL)
+            this.httpService.get(this.configuration.DOCKER_HUB_SEARCH_URL, {params: {q : searchterm}})
                 .success((data) => deferred.resolve(data))
                 .error((error:any) => {});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }
+
 }
 
-sextant.service('eventService', EventService);
+sextant.service('dockerHubService', DockerHubService);

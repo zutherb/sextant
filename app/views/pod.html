@@ -1,0 +1,66 @@
+<div class="container" ng-controller="PodEditController">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 ng-hide="vm.isNew">Pod: {{vm.pod.id}}</h1>
+            <h1 ng-show="vm.isNew">Create Pod</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Id</span>
+                <input type="text" class="form-control" placeholder="Id" ng-model="vm.pod.id">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Container</h2>
+            <button class="btn btn-sm btn-primary" ng-click="vm.addContainer()" type="button">
+                <i class="glyphicon glyphicon-plus"></i> Add Container
+            </button>
+        </div>
+    </div>
+    <div class="row" ng-repeat="container in vm.pod.desiredState.manifest.containers">
+        <hr />
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Name</span>
+                <input type="text" class="form-control" placeholder="Name" ng-model="container.name" />
+            </div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Image</span>
+                <input type="text" class="form-control" placeholder="Name" ng-model="container.image" />
+            </div>
+            <button class="btn btn-sm btn-danger" ng-click="vm.deleteContainer(container)" type="button">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Port</h3>
+                    <button class="btn btn-sm btn-primary" ng-click="vm.addPort(container)" type="button">
+                        <i class="glyphicon glyphicon-plus"></i>Add Port
+                    </button>
+                </div>
+            </div>
+            <div class="row" ng-repeat="port in container.ports">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">Container Port</span>
+                    <input type="text" class="form-control" placeholder="Container Port" ng-model="port.containerPort" />
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">Host Port</span>
+                    <input type="text" class="form-control" placeholder="Host Port" ng-model="port.hostPort" />
+                </div>
+                <button class="btn btn-sm btn-danger" ng-click="vm.deletePort(container, port)" type="button">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <hr />
+</div>
+</div>

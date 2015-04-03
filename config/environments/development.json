@@ -1,10 +1,13 @@
 {
     "EVENT_SERVICE_URL": "/mock-data/events.json",
     "MINION_SERVICE_URL": "/mock-data/minions.json",
-    "POD_SERVICE_URL": "/mock-data/pods.json",
+    "POD_GET_URL": "/mock-data/pods",
+    "PODS_GET_URL": "/mock-data/pods.json",
+    "POD_DELETE_URL": "/mock-data/pods",
     "RC_SERVICE_URL": "/mock-data/replicationControllers.json",
     "LOADBALANCER_SERVICE_URL": "/mock-data/services.json",
     "DOCKERUI_SERVICE_URL": "/mock-data/dockerui.json",
+    "DOCKER_HUB_SEARCH_URL": "/api/docker/hub/v1/search",
     "NUMBER_OF_ITEMS_PER_PAGE": 20,
     "NUMBER_OF_DISPLAYED_PAGES": 5,
     "TIMEOUT": 3000

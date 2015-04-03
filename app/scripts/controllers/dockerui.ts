@@ -3,6 +3,7 @@
 /// <reference path="../types.ts"/>
 /// <reference path="../services/minion.ts"/>
 /// <reference path="../services/dockerui.ts"/>
+'use strict';
 
 class DockerUiController {
     dockerUiPods: kubernetes.IPod [] = [];
@@ -10,7 +11,6 @@ class DockerUiController {
     static $inject = ['dockerUiService'];
 
     constructor(private dockerUiService: DockerUiService) {
-
         dockerUiService.getPodList().then((data: kubernetes.IPodList) =>  {
             this.dockerUiPods = data.items;
         });

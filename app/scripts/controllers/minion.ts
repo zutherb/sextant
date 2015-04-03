@@ -4,6 +4,7 @@
 /// <reference path="../services/minion.ts"/>
 /// <reference path="../services/dockerui.ts"/>
 /// <reference path="./dockerui.ts"/>
+'use strict';
 
 interface IMinionListScope extends ng.IScope {
     vm: MinionListController;

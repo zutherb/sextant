@@ -1,4 +1,14 @@
 <h1>Pods</h1>
+<div class="row">
+    <ul class="nav nav-pills pull-left">
+        <li class="dropdown">
+            <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#">Actions <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#/pod/">New</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 <div class="table-responsive">
     <table st-table="vm.displayedPods" st-safe-src="vm.pods"  class="table table-striped table-hover table-condensed" ng-controller="PodListController">
         <thead>
@@ -13,12 +23,14 @@
                 <th>&nbsp;</th>
             </tr>
             <tr>
-                <th colspan="8"><input st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
+                <th colspan="8"><input angucomplete-alt st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="pod in vm.displayedPods">
-                <td>{{pod.id}}</td>
+                <td>
+                    <a ng-href="/api/kubernetes/proxy/pods/{{pod.id}}" target="_blank">{{pod.id}}</a>
+                </td>
                 <td>{{pod.currentState.podIP}}</td>
                 <td>
                     <containers data="pod.desiredState.manifest.containers"></containers>
@@ -35,8 +47,13 @@
                             <i class="glyphicon glyphicon-eye-open"></i>
                         </button>
                     </a>
+                    <a ng-href="/#/pod/{{pod.id}}">
+                        <button class="btn btn-sm" type="button">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                    </a>
                     <button class="btn btn-sm btn-danger" ng-click="vm.deletePod($index)" type="button">
-                        <i class="glyphicon glyphicon-remove-circle"></i>
+                        <i class="glyphicon glyphicon-trash"></i>
                     </button>
                 </td>
             </tr>

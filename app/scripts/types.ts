@@ -12,13 +12,41 @@ declare module sextant {
     interface IConfiguration {
         EVENT_SERVICE_URL: string;
         MINION_SERVICE_URL: string;
-        POD_SERVICE_URL: string;
+        POD_GET_URL: string;
+        PODS_GET_URL: string;
+        POD_DELETE_URL: string;
         RC_SERVICE_URL: string;
         LOADBALANCER_SERVICE_URL: string;
         DOCKERUI_SERVICE_URL: string;
+        DOCKER_HUB_SEARCH_URL: string;
         NUMBER_OF_ITEMS_PER_PAGE: number;
         NUMBER_OF_DISPLAYED_PAGES: number;
         TIMEOUT: number;
+    }
+}
+
+declare module 'docker' {
+    export = docker;
+}
+
+declare module docker {
+
+    interface ISearchResult {
+        num_pages: number;
+        num_results: number;
+        page: number;
+        page_size: number;
+        query: string;
+        results: ISearchResultItem;
+    }
+
+    interface ISearchResultItem {
+        is_automated: boolean;
+        name: string;
+        is_trusted: boolean;
+        is_official: boolean;
+        star_count: number;
+        description: string;
     }
 }
 
@@ -37,10 +65,10 @@ declare module kubernetes {
     }
 
     interface IKubernetesItemBaseObject {
-        id: string;
-        uid: string;
-        selfLink: string;
-        resourceVersion: number;
+        id?: string;
+        uid?: string;
+        selfLink?: string;
+        resourceVersion?: number;
     }
 
     interface IEventList extends IKubernetesBaseObject {
@@ -116,11 +144,11 @@ declare module kubernetes {
     }
 
     interface IPod extends IKubernetesItemBaseObject {
-        namespace: string;
-        generateName: string;
-        labels: any;
-        desiredState: IDesiredState;
-        currentState: ICurrentState;
+        namespace?: string;
+        generateName?: string;
+        labels?: any;
+        desiredState?: IDesiredState;
+        currentState?: ICurrentState;
     }
 
     interface IDesiredState {
@@ -143,19 +171,19 @@ declare module kubernetes {
     }
 
     interface IContainer {
-        name: string;
-        image: string;
-        ports: IPort [];
-        resources: any;
-        terminationMessagePath: string;
-        imagePullPolicy: string;
-        capabilities: any;
+        name?: string;
+        image?: string;
+        ports?: IPort [];
+        resources?: any;
+        terminationMessagePath?: string;
+        imagePullPolicy?: string;
+        capabilities?: any;
     }
 
     interface IPort {
-        hostPort: number;
-        containerPort: number;
-        protocol: string;
+        hostPort?: number;
+        containerPort?: number;
+        protocol?: string;
     }
 
     interface IReplicationControllerList extends IKubernetesBaseObject {

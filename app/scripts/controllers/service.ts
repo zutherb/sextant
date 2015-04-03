@@ -2,6 +2,7 @@
 /// <reference path="../app.ts"/>
 /// <reference path="../types.ts"/>
 /// <reference path="../services/service.ts"/>
+'use strict';
 
 class LoadBalancerListController {
     loadbalancers: kubernetes.ILoadBalancer [] = [];

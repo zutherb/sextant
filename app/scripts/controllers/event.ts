@@ -2,6 +2,7 @@
 /// <reference path="../app.ts"/>
 /// <reference path="../types.ts"/>
 /// <reference path="../services/event.ts"/>
+'use strict';
 
 interface IEventListScope extends ng.IScope {
     vm: EventListController;

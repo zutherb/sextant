@@ -124,12 +124,27 @@ module.exports = function (grunt) {
             },
             proxies: [
                 {
-                    context: '/api/kubernetes',
-                    host: 'localhost',
+                    context: '/api/v1beta2',
+                    host: '172.17.8.101',
                     port: 8080,
-                    changeOrigin: false,
+                    changeOrigin: true
+                },
+                {
+                    context: '/api/kubernetes',
+                    host: '172.17.8.101',
+                    port: 8080,
+                    changeOrigin: true,
                     rewrite: {
-                        '^/api/kubernetes' : '/api/v1beta2'
+                        'api/kubernetes' : '/api/v1beta2/'
+                    }
+                },
+                {
+                    context: '/api/docker/hub',
+                    host: '172.17.8.101',
+                    changeOrigin: true,
+                    port: 5000,
+                    rewrite: {
+                        'api/docker/hub' : ''
                     }
                 }
             ],
@@ -187,7 +202,7 @@ module.exports = function (grunt) {
             },
             test: {
                 options: {
-                    jshintrc: 'test/.jshintrc'
+                    jshintrc: '.jshintrc'
                 },
                 src: ['test/spec/{,*/}*.js']
             }

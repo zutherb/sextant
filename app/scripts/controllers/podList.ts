@@ -2,6 +2,7 @@
 /// <reference path="../app.ts"/>
 /// <reference path="../types.ts"/>
 /// <reference path="../services/pod.ts"/>
+'use strict';
 
 interface IPodListScope extends ng.IScope {
     vm: PodListController;
@@ -22,7 +23,7 @@ class PodListController {
                 private podService:IPodService,
                 private configuration:sextant.IConfiguration) {
 
-        podService.getPodList().then((data: kubernetes.IPodList) => {
+        podService.getPods().then((data: kubernetes.IPodList) => {
             this.pods = data.items;
             this.displayedPods = [].concat(data.items);
         });
@@ -33,22 +34,10 @@ class PodListController {
         $scope.vm = this;
     }
 
-    //rowClass(index: number):string {
-    //    if (this.displayedPods[index].currentState.status == 'Running') {
-    //        return 'success'
-    //    }
-    //    if (this.displayedPods[index].currentState.status == 'Pending' ||
-    //        this.displayedPods[index].currentState.status == 'Waiting' ||
-    //        this.displayedPods[index].currentState.status == 'Unknown') {
-    //        return 'warning'
-    //    }
-    //    return 'danger'
-    //}
-
     deletePod(index: number):void {
         var podId = this.displayedPods[index].id;
         this.podService.deletePod(podId).then(() => {
-            this.podService.getPodList().then((data: kubernetes.IPodList) => {
+            this.podService.getPods().then((data: kubernetes.IPodList) => {
                 this.displayedPods = data.items;
             });
         });

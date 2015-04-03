@@ -1,4 +1,5 @@
 /// <reference path="../app.ts"/>
+'use strict';
 
 sextant.directive("images", [(): ng.IDirective => {
     var directive:ng.IDirective = {};

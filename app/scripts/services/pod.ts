@@ -1,9 +1,11 @@
 /// <reference path="../__all.ts"/>
 /// <reference path="../app.ts"/>
 /// <reference path="../types.ts"/>
+'use strict';
 
 interface IPodService {
-    getPodList(): ng.IPromise <kubernetes.IPodList>
+    getPods(): ng.IPromise <kubernetes.IPodList>
+    getPod(podId: string): ng.IPromise <kubernetes.IPod>
     deletePod(podId: string): ng.IPromise <void>
 }
 
@@ -26,11 +28,21 @@ class PodService implements IPodService {
         this.timeoutService = $timeout;
     }
 
-    getPodList(): ng.IPromise <kubernetes.IPodList> {
+    getPods(): ng.IPromise <kubernetes.IPodList> {
         var deferred = this.qService.defer();
         this.timeoutService(() => {
-            this.httpService.get(this.configuration.POD_SERVICE_URL)
+            this.httpService.get(this.configuration.PODS_GET_URL)
                 .success((data) => deferred.resolve(data))
+                .error((error:any) => {});
+        }, this.configuration.TIMEOUT);
+        return deferred.promise;
+    }
+
+    getPod(podId: string): ng.IPromise <kubernetes.IPod> {
+        var deferred = this.qService.defer();
+        this.timeoutService(() => {
+            this.httpService.get(this.configuration.POD_GET_URL + "/" + podId)
+                .success((data: kubernetes.IPod) => deferred.resolve(data))
                 .error((error:any) => {});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
@@ -39,7 +51,7 @@ class PodService implements IPodService {
     deletePod(podId: string): ng.IPromise <any> {
         var deferred = this.qService.defer();
         this.timeoutService(() => {
-            this.httpService.delete(this.configuration.POD_SERVICE_URL + "/" + podId)
+            this.httpService.delete(this.configuration.POD_DELETE_URL, {params: {q: podId}})
                 .success((data) => deferred.resolve(data))
                 .error((error:any) => {});
         }, this.configuration.TIMEOUT);

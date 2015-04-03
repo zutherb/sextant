@@ -1,10 +1,11 @@
-/// <reference path="../__all.ts"/>
-/// <reference path="../app.ts"/>
-/// <reference path="../types.ts"/>
-/// <reference path="../services/pod.ts"/>
-/// <reference path="../services/minion.ts"/>
-/// <reference path="../services/rc.ts"/>
-/// <reference path="../services/event.ts"/>
+/// <reference path='../__all.ts'/>
+/// <reference path='../app.ts'/>
+/// <reference path='../types.ts'/>
+/// <reference path='../services/pod.ts'/>
+/// <reference path='../services/minion.ts'/>
+/// <reference path='../services/rc.ts'/>
+/// <reference path='../services/event.ts'/>
+'use strict';
 
 class DashboardController {
     podStatusReportLabels: string [] = [];
@@ -48,7 +49,7 @@ class DashboardController {
                 private eventService: IEventService,
                 private configuration: sextant.IConfiguration) {
 
-        podService.getPodList().then((data:kubernetes.IPodList) => {
+        podService.getPods().then((data:kubernetes.IPodList) => {
             var podStatusReport = {};
             _.each(data.items, (pod: kubernetes.IPod) => {
                 if (podStatusReport[pod.currentState.status] === undefined) {
@@ -102,12 +103,12 @@ class DashboardController {
                 var timestamp = moment(event.timestamp);
                 if(moment(event.timestamp).isAfter(moment().subtract(2, 'days'))){
                     for(var i = 0; i < 24; i++) {
-                        var key: string = timestamp.year() + "/" + (timestamp.month() + 1) + "/" + timestamp.date() + " " + i + ":00";
+                        var key: string = timestamp.year() + '/' + (timestamp.month() + 1) + '/' + timestamp.date() + ' ' + i + ':00';
                         if (eventStatusReport[key] === undefined) {
                             eventStatusReport[key] = 0;
                         }
                     }
-                    var key: string = timestamp.year() + "/" + (timestamp.month() + 1) + "/" + timestamp.date() + " " + timestamp.hour() + ":00";
+                    var key: string = timestamp.year() + '/' + (timestamp.month() + 1) + '/' + timestamp.date() + ' ' + timestamp.hour() + ':00';
                     if (eventStatusReport[key] === undefined) {
                         eventStatusReport[key] = 0;
                     }

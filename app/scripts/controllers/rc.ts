@@ -2,6 +2,7 @@
 /// <reference path="../app.ts"/>
 /// <reference path="../types.ts"/>
 /// <reference path="../services/rc.ts"/>
+'use strict';
 
 class ReplicationControllerListController {
     rcs: kubernetes.IReplicationController [] = [];

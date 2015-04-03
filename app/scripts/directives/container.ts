@@ -1,15 +1,20 @@
 /// <reference path="../app.ts"/>
+'use strict';
 
-sextant.directive("containers", [(): ng.IDirective => {
-    var directive:ng.IDirective = {};
+class ContainersDirective implements ng.IDirective {
+    constructor(){
+        var directive:ng.IDirective = {};
 
-    directive.restrict = "AE";
-    directive.templateUrl = "/partials/containers.html";
-    directive.replace = true;
+        directive.restrict = "AE";
+        directive.templateUrl = "/partials/containers.html";
+        directive.replace = true;
 
-    directive.scope = {
-        data: "=data"
-    };
+        directive.scope = {
+            data: "=data"
+        };
 
-    return directive;
-}]);
+        return directive;
+    }
+}
+
+sextant.directive("containers", [ContainersDirective]);

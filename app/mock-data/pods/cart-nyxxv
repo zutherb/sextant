@@ -1,0 +1,115 @@
+{
+
+      "id": "cart-nyxxv",
+      "uid": "c68a4b9e-d004-11e4-83cd-080027b9214b",
+      "creationTimestamp": "2015-03-21T19:59:25Z",
+      "selfLink": "/api/v1beta2/pods/cart-nyxxv?namespace=default",
+      "resourceVersion": 2520,
+      "namespace": "default",
+      "generateName": "cart-",
+      "labels":
+
+      {
+
+        "name": "cart",
+        "uses": "redis"
+
+      },
+      "desiredState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "v1beta2",
+          "id": "",
+          "volumes": null,
+          "containers":
+
+          [
+
+            {
+
+              "name": "cart",
+              "image": "zutherb/cart-service",
+              "ports":
+
+              [
+
+                {
+                  "containerPort": 18100,
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": { },
+              "terminationMessagePath": "/dev/termination-log",
+              "imagePullPolicy": "PullIfNotPresent",
+              "capabilities": { }
+            }
+
+          ],
+          "restartPolicy":
+
+          {
+            "always": { }
+          },
+          "dnsPolicy": "ClusterFirst"
+        },
+        "host": "172.17.8.103"
+
+      },
+      "currentState":
+      {
+
+        "manifest":
+
+        {
+
+          "version": "",
+          "id": "",
+          "volumes": null,
+          "containers": null,
+          "restartPolicy": { }
+
+        },
+        "status": "Running",
+        "Condition":
+        [
+
+          {
+            "kind": "Ready",
+            "status": "Full"
+          }
+
+        ],
+        "host": "172.17.8.103",
+        "hostIP": "172.17.8.103",
+        "podIP": "10.244.71.6",
+        "info":
+        {
+
+          "cart":
+
+          {
+
+            "state":
+
+            {
+
+              "running":
+
+              {
+                "startedAt": "2015-03-21T20:38:40Z"
+              }
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "zutherb/cart-service",
+            "imageID": "docker://0df36aedf6b3ed7d7e20a56e2605139465542178702f02be184521086eec3576",
+            "containerID": "docker://7f5ef3376e7a7c553c059b0958a36ca7eea5f80ba2f219cf612678a1edd5b171"
+          }
+        }
+      }
+
+    }
