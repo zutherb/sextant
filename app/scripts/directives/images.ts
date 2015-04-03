@@ -1,6 +1,6 @@
 /// <reference path="../app.ts"/>
 
-sextant.directive("images", [():ng.IDirective => {
+sextant.directive("images", [(): ng.IDirective => {
     var directive:ng.IDirective = {};
 
     directive.restrict = "AE";

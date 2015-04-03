@@ -1,6 +1,6 @@
 /// <reference path="../app.ts"/>
 
-sextant.directive("keyvaluelist", [():ng.IDirective => {
+sextant.directive("keyvaluelist", [(): ng.IDirective => {
     var directive:ng.IDirective = {};
 
     directive.restrict = "AE";

@@ -7,7 +7,7 @@ interface INavigationScope extends ng.IScope {
     cssClass(hash :string): string;
 }
 
-sextant.directive("navigation", [():ng.IDirective => {
+sextant.directive("navigation", [(): ng.IDirective => {
     var directive:ng.IDirective = {};
 
     directive.restrict = "AE";
