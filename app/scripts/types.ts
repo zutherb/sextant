@@ -208,12 +208,12 @@ declare module kubernetes {
     }
 
     interface ILoadBalancer extends IKubernetesItemBaseObject {
-        port: number;
-        protocol: string;
-        labels: any;
-        selector: any;
-        containerPort: number;
-        portalIP: string;
-        sessionAffinity: string;
+        port?: number;
+        protocol?: string;
+        labels?: any;
+        selector?: any;
+        containerPort?: number;
+        portalIP?: string;
+        sessionAffinity?: string;
     }
 }

@@ -43,7 +43,8 @@ release: clean install build
 	docker push zutherb/sextant
 
 fast-release: build
-	docker push zutherb/sextant
+	docker tag zutherb/sextant 172.17.8.101:5000/zutherb/sextant
+	docker push 172.17.8.101:5000/zutherb/sextant
 
 deploy:
 	kubectl create -f kubernetes/sextant.json

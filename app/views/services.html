@@ -8,9 +8,10 @@
                 <th st-sort="selector">SELECTOR</th>
                 <th st-sort="portalIP">IP</th>
                 <th st-sort="port">PORT</th>
+                <th>&nbsp;</th>
             </tr>
             <tr>
-                <th colspan="8">
+                <th colspan="6">
                     <input st-search class="form-control" placeholder="global search ..." type="search" ng-change="" ng-model="vm.searchterm" />
                 </th>
             </tr>
@@ -22,6 +23,13 @@
                 <td><keyvaluelist data="item.selector"></keyvaluelist></td>
                 <td>{{item.portalIP}}</td>
                 <td>{{item.port}}</td>
+                <td>
+                    <a ng-href="/#/service/{{item.id}}">
+                        <button class="btn btn-sm" type="button">
+                            <i class="glyphicon glyphicon-edit"></i>
+                        </button>
+                    </a>
+                </td>
             </tr>
         </tbody>
         <tfoot>

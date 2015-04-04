@@ -5,6 +5,8 @@
 
 interface ILoadBalancerService {
     getLoadBalancerList(): ng.IPromise <kubernetes.ILoadBalancerList>
+    getLoadBalancer(id: string): ng.IPromise <kubernetes.ILoadBalancer>
+    saveOrUpdate(loadBalancer: kubernetes.ILoadBalancer): void;
 }
 
 class LoadBalancerService implements ILoadBalancerService {
@@ -34,6 +36,30 @@ class LoadBalancerService implements ILoadBalancerService {
                 .error((error:any) => {});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
+    }
+
+    getLoadBalancer(id: string): ng.IPromise <kubernetes.ILoadBalancer> {
+        var deferred = this.qService.defer();
+        this.timeoutService(() => {
+            this.httpService.get(this.configuration.LOADBALANCER_SERVICE_URL + '/' + id)
+                .success((data) => deferred.resolve(data))
+                .error((error:any) => {});
+        }, this.configuration.TIMEOUT);
+        return deferred.promise;
+    }
+
+    saveOrUpdate(loadBalancer: kubernetes.ILoadBalancer): void {
+        this.timeoutService(() => {
+            if(_.isEmpty(loadBalancer.id)){
+                this.httpService.post(this.configuration.LOADBALANCER_SERVICE_URL + '/' + loadBalancer.id, loadBalancer)
+                    .success((data) => data)
+                    .error((error:any) => {});
+            } else {
+                this.httpService.put(this.configuration.LOADBALANCER_SERVICE_URL + '/' + loadBalancer.id, loadBalancer)
+                    .success((data) => data)
+                    .error((error:any) => {});
+            }
+        }, this.configuration.TIMEOUT);
     }
 }
 

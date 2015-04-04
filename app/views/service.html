@@ -1,0 +1,26 @@
+<div class="container" ng-controller="LoadBalancerEditController">
+    <h1 ng-hide="vm.isNew">Service: {{vm.service.id}}</h1>
+    <h1 ng-show="vm.isNew">Create Service</h1>
+
+    <div class="form-group">
+        <label for="Id">Id</label>
+        <input type="text" class="form-control" id="Id" placeholder="Id" ng-model="vm.service.id">
+    </div>
+    <div class="form-group">
+        <label for="port">Port</label>
+        <input id="port" type="text" class="form-control" placeholder="Port" ng-model="vm.service.port">
+    </div>
+    <div class="form-group">
+        <label for="containerPort">Container Port</label>
+        <input id="containerPort" class="form-control" placeholder="Container Port" ng-model="vm.service.containerPort">
+    </div>
+    <div class="form-group">
+        <label for="portalIP">Portal IP</label>
+        <input id="portalIP" class="form-control" placeholder="Portal IP" ng-model="vm.service.portalIP">
+    </div>
+    <hr/>
+    <button class="btn btn-sm btn-primary" ng-click="vm.update()" type="submit" data-loading-text="Saving...">
+        <i class="glyphicon glyphicon-file"></i> Save
+    </button>
+
+</div>

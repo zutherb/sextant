@@ -24,6 +24,7 @@ class PodEditController {
             });
         } else {
             this.pod = {};
+            this.pod.desiredState.manifest.containers = [];
             this.isNew = true;
         }
 
@@ -40,14 +41,18 @@ class PodEditController {
     }
 
     deletePort(container: kubernetes.IContainer, port: kubernetes.IPort): void {
-        var index = this.pod.desiredState.manifest.containers.indexOf(container);
-        var ports = this.pod.desiredState.manifest.containers[index].ports;
+        var index: number = this.pod.desiredState.manifest.containers.indexOf(container);
+        var ports: kubernetes.IPort [] = this.pod.desiredState.manifest.containers[index].ports;
         this.pod.desiredState.manifest.containers[index].ports = _.without(ports, port);
     }
 
     addPort(container: kubernetes.IContainer): void {
         var index = this.pod.desiredState.manifest.containers.indexOf(container);
         this.pod.desiredState.manifest.containers[index].ports.push({});
+    }
+
+    update(): void {
+        console.log(this.pod);
     }
 }
 
