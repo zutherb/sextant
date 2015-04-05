@@ -41,7 +41,7 @@ class PodService implements IPodService {
     getPod(podId: string): ng.IPromise <kubernetes.IPod> {
         var deferred = this.qService.defer();
         this.timeoutService(() => {
-            this.httpService.get(this.configuration.POD_GET_URL + "/" + podId)
+            this.httpService.get(this.configuration.POD_GET_URL + '/' + podId)
                 .success((data: kubernetes.IPod) => deferred.resolve(data))
                 .error((error:any) => {});
         }, this.configuration.TIMEOUT);

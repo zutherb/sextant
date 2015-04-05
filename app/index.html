@@ -31,8 +31,9 @@
 </main>
 
 <footer class="footer">
-    <div class="container">
-        <a href="https://github.com/zutherb/sextant">Code</a> licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache Open Source</a>
+    <div class="container" ng-controller="InfoController">
+        <a href="https://github.com/zutherb/sextant">Code</a> licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache Open Source</a>.
+        Sextant Version {{vm.info.version}} | {{vm.info.git.revision}}
     </div>
 </footer>
 

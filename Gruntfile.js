@@ -22,11 +22,53 @@ module.exports = function (grunt) {
         dist: 'dist'
     };
 
+    var infoJson = function (){
+        var packageJson = grunt.file.readJSON('package.json');
+        var bowerJson = grunt.file.readJSON('bower.json');
+
+        var result = {
+            'name':         packageJson.name,
+            'version':      packageJson.version,
+            'engines':      packageJson.engines,
+            'dependencies': {
+                npm:        packageJson.devDependencies,
+                bower:      bowerJson.dependencies
+            },
+            'git': {
+                revision:   grunt.config('meta.revision')
+            },
+            date:           grunt.template.today()
+        }
+
+        return result;
+    }
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
         // Project settings
         yeoman: appConfig,
+
+        revision: {
+            options: {
+                property: 'meta.revision',
+                ref: 'HEAD',
+                short: true
+            }
+        },
+
+        'file-creator': {
+            'info': {
+                'dist/info.json': function(fs, fd, done) {
+                    fs.writeSync(fd, JSON.stringify(infoJson()));
+                    done();
+                },
+                '.tmp/info.json': function(fs, fd, done) {
+                    fs.writeSync(fd, JSON.stringify(infoJson()));
+                    done();
+                }
+            }
+        },
 
         tsd: {
           refresh: {
@@ -555,6 +597,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'replace:development',
+            'revision',
+            'file-creator:info',
             'tsd',
             'typescript',
             'copy:glyphicons',
@@ -575,6 +619,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'replace:production',
+            'revision',
+            'file-creator:info',
             'tsd',
             'typescript',
             'copy:glyphicons',
@@ -607,6 +653,8 @@ module.exports = function (grunt) {
         'tsd',
         'typescript',
         'replace:production',
+        'revision',
+        'file-creator:info',
         'wiredep',
         'useminPrepare',
         'concurrent:dist',
