@@ -31,7 +31,7 @@ class InfoService implements IInfoService {
         this.timeoutService(() => {
             this.httpService.get('/info.json')
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }

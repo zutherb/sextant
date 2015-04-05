@@ -38,10 +38,10 @@ module.exports = function (grunt) {
                 revision:   grunt.config('meta.revision')
             },
             date:           grunt.template.today()
-        }
+        };
 
         return result;
-    }
+    };
 
     // Define the configuration for all the tasks
     grunt.initConfig({

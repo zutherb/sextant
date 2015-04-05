@@ -33,7 +33,7 @@ class PodService implements IPodService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.PODS_GET_URL)
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }
@@ -43,7 +43,7 @@ class PodService implements IPodService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.POD_GET_URL + '/' + podId)
                 .success((data: kubernetes.IPod) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }
@@ -53,7 +53,7 @@ class PodService implements IPodService {
         this.timeoutService(() => {
             this.httpService.delete(this.configuration.POD_DELETE_URL, {params: {q: podId}})
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }

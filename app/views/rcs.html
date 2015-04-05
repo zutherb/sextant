@@ -32,7 +32,7 @@
                                class="replicas"
                                ng-model="item.desiredState.replicas"
                                ng-value="{{item.desiredState.replicas}}" />
-                        <button class="btn btn-sm btn-success" type="submit">
+                        <button class="btn btn-sm btn-success" type="submit" ng-click="vm.update(item)">
                             <i class="glyphicon glyphicon-floppy-saved"></i>
                         </button>
                         <button class="btn btn-sm btn-danger" type="reset">

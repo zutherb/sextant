@@ -31,7 +31,7 @@ class DockerUiService implements IDockerUiService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.DOCKERUI_SERVICE_URL)
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }

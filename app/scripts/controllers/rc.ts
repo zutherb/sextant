@@ -31,6 +31,10 @@ class ReplicationControllerListController {
 
         $scope.vm = this;
     }
+
+    update(rc: kubernetes.IReplicationController): void {
+        this.rcService.update(rc);
+    }
 }
 
 sextant.controller('rcListController', ReplicationControllerListController);

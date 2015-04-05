@@ -33,7 +33,7 @@ class LoadBalancerService implements ILoadBalancerService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.LOADBALANCER_SERVICE_URL)
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }
@@ -43,7 +43,7 @@ class LoadBalancerService implements ILoadBalancerService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.LOADBALANCER_SERVICE_URL + '/' + id)
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {{console.log(error);}});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }
@@ -53,11 +53,11 @@ class LoadBalancerService implements ILoadBalancerService {
             if(_.isEmpty(loadBalancer.id)){
                 this.httpService.post(this.configuration.LOADBALANCER_SERVICE_URL + '/' + loadBalancer.id, loadBalancer)
                     .success((data) => data)
-                    .error((error:any) => {});
+                    .error((error:any) => {console.log(error);});
             } else {
                 this.httpService.put(this.configuration.LOADBALANCER_SERVICE_URL + '/' + loadBalancer.id, loadBalancer)
                     .success((data) => data)
-                    .error((error:any) => {});
+                    .error((error:any) => {console.log(error);});
             }
         }, this.configuration.TIMEOUT);
     }

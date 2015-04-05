@@ -31,7 +31,7 @@ class DockerHubService implements IDockerHubService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.DOCKER_HUB_SEARCH_URL, {params: {q : searchterm}})
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
     }

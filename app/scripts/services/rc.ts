@@ -4,7 +4,8 @@
 'use strict';
 
 interface IReplicationControllerService {
-    getReplicationControllerList(): ng.IPromise <kubernetes.IReplicationControllerList>
+    getReplicationControllerList(): ng.IPromise <kubernetes.IReplicationControllerList>;
+    update(rc: kubernetes.IReplicationController): void;
 }
 
 class ReplicationControllerService implements IReplicationControllerService {
@@ -31,9 +32,17 @@ class ReplicationControllerService implements IReplicationControllerService {
         this.timeoutService(() => {
             this.httpService.get(this.configuration.RC_SERVICE_URL)
                 .success((data) => deferred.resolve(data))
-                .error((error:any) => {});
+                .error((error:any) => {console.log(error);});
         }, this.configuration.TIMEOUT);
         return deferred.promise;
+    }
+
+    update(rc: kubernetes.IReplicationController): void {
+        this.timeoutService(() => {
+            this.httpService.put(this.configuration.RC_SERVICE_URL + '/' + rc.id, rc)
+                .success((data) => {console.log(data);})
+                .error((error:any) => {console.log(error);});
+        }, this.configuration.TIMEOUT);
     }
 }
 
