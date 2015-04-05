@@ -8,9 +8,10 @@
                 <th>IMAGE(S)</th>
                 <th st-sort="desiredState.replicaSelector">SELECTOR</th>
                 <th st-sort="desiredState.replicas">REPLICAS</th>
+                <th>&nbsp;</th>
             </tr>
             <tr>
-                <th colspan="8">
+                <th colspan="6">
                     <input st-search class="form-control" placeholder="global search ..." type="search" ng-change="" ng-model="vm.searchterm" />
                 </th>
             </tr>
@@ -25,15 +26,30 @@
                     <images data="item.desiredState.podTemplate.desiredState.manifest.containers"></images>
                 </td>
                 <td><keyvaluelist data="item.desiredState.replicaSelector"></keyvaluelist></td>
-                <td>{{item.desiredState.replicas}}</td>
+                <td>
+                    <form>
+                        <input type="number"
+                               class="replicas"
+                               ng-model="item.desiredState.replicas"
+                               ng-value="{{item.desiredState.replicas}}" />
+                        <button class="btn btn-sm btn-success" type="submit">
+                            <i class="glyphicon glyphicon-floppy-saved"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" type="reset">
+                            <i class="glyphicon glyphicon-floppy-remove"></i>
+                        </button>
+                    </form>
+                </td>
+                <td>
+                </td>
             </tr>
         </tbody>
         <tfoot>
-        <tr>
-            <td colspan="8" class="text-center">
-                <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
-            </td>
-        </tr>
+            <tr>
+                <td colspan="6" class="text-center">
+                    <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
+                </td>
+            </tr>
         </tfoot>
     </table>
 </div>
