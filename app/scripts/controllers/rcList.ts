@@ -33,6 +33,12 @@ class ReplicationControllerListController {
         $scope.vm = this;
     }
 
+    delete(rc: kubernetes.IReplicationController): void {
+        this.rcService.delete(rc).then((data: kubernetes.IReplicationControllerList) =>  {
+            this.rcs = data.items;
+        });
+    }
+
     update(rc: kubernetes.IReplicationController): void {
         this.rcService.update(rc);
     }
