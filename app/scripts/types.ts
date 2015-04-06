@@ -1,9 +1,4 @@
 /// <reference path='./__all.ts' />
-
-var _: UnderscoreStatic;
-var $: JQueryStatic;
-var moment: moment.MomentStatic;
-
 declare module 'sextant' {
     export = sextant;
 }
@@ -173,7 +168,7 @@ declare module kubernetes {
         id: string;
         volumes: any;
         containers: IContainer [];
-        restartPolicy:any;
+        restartPolicy: any;
         dnsPolicy: string;
     }
 
