@@ -156,8 +156,15 @@ declare module kubernetes {
         host: string;
     }
 
+    enum PodStatus {
+        Pending,
+        Running,
+        Succeeded,
+        Failed
+    }
+
     interface ICurrentState {
-        status: string;
+        status: PodStatus;
         hostIP: string;
     }
 

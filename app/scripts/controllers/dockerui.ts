@@ -27,6 +27,6 @@ class DockerUiController {
     }
 
     podsByHost(hostIP) {
-        return _.filter(this.dockerUiPods, (pod:kubernetes.IPod) => pod.currentState.hostIP == hostIP);
+        return _.filter(this.dockerUiPods, (pod:kubernetes.IPod) => pod.currentState.hostIP === hostIP);
     }
 }
