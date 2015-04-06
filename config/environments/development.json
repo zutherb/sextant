@@ -10,5 +10,5 @@
     "DOCKER_HUB_SEARCH_URL": "/api/docker/hub/v1/search",
     "NUMBER_OF_ITEMS_PER_PAGE": 20,
     "NUMBER_OF_DISPLAYED_PAGES": 5,
-    "TIMEOUT": 3000
+    "TIMEOUT": 0
 }
