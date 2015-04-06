@@ -7,7 +7,7 @@
 interface IPodService {
     getPods(): ng.IPromise <kubernetes.IPodList>
     getPod(podId: string): ng.IPromise <kubernetes.IPod>
-    deletePod(podId: string): ng.IPromise <void>
+    delete(pod: kubernetes.IPod): ng.IPromise <void>
 }
 
 class PodService extends BaseService implements IPodService {
@@ -41,19 +41,15 @@ class PodService extends BaseService implements IPodService {
         var deferred: ng.IDeferred<kubernetes.IPod> = this.qService.defer();
         this.httpService.get(this.configuration.POD_GET_URL + '/' + podId, this.newDefaultRequestConfig())
             .success((data: kubernetes.IPod) => deferred.resolve(data))
-            .error((error: any) => {
-                console.log(error);
-            });
+            .error((error: any) => console.log(error));
         return deferred.promise;
     }
 
-    deletePod(podId: string): ng.IPromise <any> {
+    delete(pod: kubernetes.IPod): ng.IPromise <void> {
         var deferred: ng.IDeferred<any> = this.qService.defer();
-        this.httpService.delete(this.configuration.POD_DELETE_URL + '/' + podId, this.newDefaultRequestConfig())
-            .success((data: any) => console.log(data))
-            .error((error: any) => {
-                console.log(error);
-            });
+        this.httpService.delete(this.configuration.POD_DELETE_URL + '/' + pod.id, this.newDefaultRequestConfig())
+            .success((data: any) => deferred.resolve(data))
+            .error((error: any) => console.log(error));
         return deferred.promise;
     }
 }

@@ -34,11 +34,10 @@ class PodListController {
         $scope.vm = this;
     }
 
-    deletePod(index: number): void {
-        var podId: string = this.displayedPods[index].id;
-        this.podService.deletePod(podId).then(() => {
+    delete(pod: kubernetes.IPod): void {
+        this.podService.delete(pod).then(() => {
             this.podService.getPods().then((data: kubernetes.IPodList) => {
-                this.displayedPods = data.items;
+                this.pods = data.items;
             });
         });
     }

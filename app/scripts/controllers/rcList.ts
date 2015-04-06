@@ -35,7 +35,9 @@ class ReplicationControllerListController {
 
     delete(rc: kubernetes.IReplicationController): void {
         this.rcService.delete(rc).then((data: kubernetes.IReplicationControllerList) =>  {
-            this.rcs = data.items;
+            this.rcService.getReplicationControllerList().then((data: kubernetes.IReplicationControllerList) =>  {
+                this.rcs = data.items;
+            });
         });
     }
 
