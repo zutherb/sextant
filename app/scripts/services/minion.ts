@@ -9,27 +9,28 @@ interface IMinionService {
 }
 
 class MinionService extends BaseService implements IMinionService {
+    static $inject: string [] = ['$http', '$q', '$rootScope', 'configuration'];
+
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
 
-    static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
                 private $rootScope: ng.IScope,
                 protected configuration: sextant.IConfiguration) {
-        super(configuration)
+        super(configuration);
         this.httpService = $http;
         this.qService = $q;
         this.rootScope = $rootScope;
     }
 
     getMinionList(): ng.IPromise <kubernetes.IMinionList> {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<kubernetes.IMinionList> = this.qService.defer();
         this.httpService.get(this.configuration.MINION_SERVICE_URL, this.newDefaultRequestConfig())
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {console.log(error);});
+            .success((data: kubernetes.IMinionList) => deferred.resolve(data))
+            .error((error: any) => { console.log(error); });
         return deferred.promise;
     }
 }

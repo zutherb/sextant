@@ -1,7 +1,7 @@
 /// <reference path="types.ts"/>
 'use strict';
 
-var sextant = angular.module('sextant', [
+var sextant: any = angular.module('sextant', [
     'ui.bootstrap',
     'ngAnimate',
     'ngCookies',
@@ -14,7 +14,8 @@ var sextant = angular.module('sextant', [
     'smart-table',
     'sextant.config',
     'LocalStorageModule'
-]).config(($routeProvider:ng.route.IRouteProvider) => {
+]);
+sextant.config(($routeProvider: ng.route.IRouteProvider) => {
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html'
@@ -55,7 +56,7 @@ var sextant = angular.module('sextant', [
         .otherwise({
             templateUrl: 'views/404.html'
         });
-}).config(['localStorageServiceProvider', (localStorageServiceProvider) => {
+}).config(['localStorageServiceProvider', (localStorageServiceProvider: any) => {
     localStorageServiceProvider.setPrefix('sextant');
 }]);
 

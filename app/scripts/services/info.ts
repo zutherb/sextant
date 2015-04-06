@@ -9,27 +9,28 @@ interface IInfoService {
 }
 
 class InfoService extends BaseService implements IInfoService {
+    static $inject: string [] = ['$http', '$q', '$rootScope', 'configuration'];
+
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
 
-    static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
                 private $rootScope: ng.IScope,
                 protected configuration: sextant.IConfiguration) {
-        super(configuration)
+        super(configuration);
         this.httpService = $http;
         this.qService = $q;
         this.rootScope = $rootScope;
     }
 
     getBuildInfo(): any {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<any> = this.qService.defer();
         this.httpService.get('/info.json', this.newDefaultRequestConfig())
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: any) => deferred.resolve(data))
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;

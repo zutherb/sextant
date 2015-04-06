@@ -5,6 +5,8 @@
 'use strict';
 
 class LoadBalancerListController {
+    static $inject: string [] = ['$scope', '$routeParams', 'loadBalancerService', 'configuration'];
+
     loadbalancers: kubernetes.ILoadBalancer [] = [];
     displayedLoadbalancers: kubernetes.ILoadBalancer [] = [];
 
@@ -12,10 +14,8 @@ class LoadBalancerListController {
     itemsByPage: number;
     displayedPages: number;
 
-    static $inject = ['$scope', '$routeParams', 'loadBalancerService', 'configuration'];
-
-    constructor(private $scope,
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private loadBalancerService: ILoadBalancerService,
                 private configuration: sextant.IConfiguration) {
 
@@ -30,6 +30,14 @@ class LoadBalancerListController {
         this.displayedPages = configuration.NUMBER_OF_DISPLAYED_PAGES;
 
         $scope.vm = this;
+    }
+
+    delete(loadBalancer: kubernetes.ILoadBalancer): void {
+        this.loadBalancerService.delete(loadBalancer).then(() => {
+            this.loadBalancerService.getLoadBalancerList().then((data: kubernetes.IPodList) => {
+                this.loadbalancers = data.items;
+            });
+        });
     }
 }
 

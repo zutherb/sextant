@@ -11,12 +11,12 @@ interface IMinionListScope extends ng.IScope {
 }
 
 class MinionListController extends DockerUiController {
+    static $inject: string [] = ['$scope', '$routeParams', 'minionService', 'dockerUiService'];
+
     minions: kubernetes.IMinion [] = [];
 
-    static $inject = ['$scope', '$routeParams', 'minionService', 'dockerUiService'];
-
-    constructor(private $scope,
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private minionService: IMinionService,
                 dockerUiService: DockerUiService) {
         super(dockerUiService);

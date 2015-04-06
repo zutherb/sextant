@@ -9,6 +9,8 @@ interface IEventListScope extends ng.IScope {
 }
 
 class EventListController {
+    static $inject: string [] = ['$scope', '$routeParams', 'eventService', 'configuration'];
+
     events: kubernetes.IEvent [] = [];
     displayedEvents: kubernetes.IEvent [] = [];
 
@@ -16,10 +18,9 @@ class EventListController {
     itemsByPage: number;
     displayedPages: number;
 
-    static $inject = ['$scope', '$routeParams', 'eventService', 'configuration'];
 
-    constructor(private $scope,
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private eventService: IEventService,
                 private configuration: sextant.IConfiguration) {
 

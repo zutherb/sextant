@@ -1,16 +1,21 @@
 /// <reference path="../app.ts"/>
 'use strict';
 
-sextant.directive('keyvaluelist', [(): ng.IDirective => {
-    var directive:ng.IDirective = {};
+class KeyValueListDirective {
 
-    directive.restrict = 'AE';
-    directive.templateUrl = '/partials/keyvaluelist.html';
-    directive.replace = true;
+    constructor() {
+        var directive: ng.IDirective = {};
 
-    directive.scope = {
-        data: '=data'
-    };
+        directive.restrict = 'AE';
+        directive.templateUrl = '/partials/keyvaluelist.html';
+        directive.replace = true;
 
-    return directive;
-}]);
+        directive.scope = {
+            data: '=data'
+        };
+
+        return directive;
+    }
+}
+
+sextant.directive('keyvaluelist', [ KeyValueListDirective ]);

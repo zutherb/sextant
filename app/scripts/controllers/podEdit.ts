@@ -5,19 +5,16 @@
 'use strict';
 
 class PodEditController {
+    static $inject: string [] = ['$scope', '$routeParams', 'podService', 'configuration'];
+
     pod: kubernetes.IPod;
     isNew: boolean;
 
-    static $inject = ['$scope', '$routeParams', 'podService', 'configuration'];
-
-    constructor(private $scope,
-
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private podService: IPodService,
                 private configuration: sextant.IConfiguration) {
-
-
-        if(!_.isEmpty($routeParams.podid)){
+        if (!_.isEmpty($routeParams.podid)) {
             podService.getPod($routeParams.podid).then((data: kubernetes.IPod) => {
                 this.pod = data;
                 this.isNew = false;
@@ -32,11 +29,11 @@ class PodEditController {
     }
 
     deleteContainer(container: kubernetes.IContainer): void {
-        var containers = _.without(this.pod.desiredState.manifest.containers, container);
+        var containers: kubernetes.IContainer [] = _.without(this.pod.desiredState.manifest.containers, container);
         this.pod.desiredState.manifest.containers = containers;
     }
 
-    addContainer(): void{
+    addContainer(): void {
         this.pod.desiredState.manifest.containers.push({ports: []});
     }
 
@@ -47,7 +44,7 @@ class PodEditController {
     }
 
     addPort(container: kubernetes.IContainer): void {
-        var index = this.pod.desiredState.manifest.containers.indexOf(container);
+        var index: number = this.pod.desiredState.manifest.containers.indexOf(container);
         this.pod.desiredState.manifest.containers[index].ports.push({});
     }
 

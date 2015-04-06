@@ -6,9 +6,9 @@
 'use strict';
 
 class DockerUiController {
-    dockerUiPods: kubernetes.IPod [] = [];
+    static $inject: string [] = ['dockerUiService'];
 
-    static $inject = ['dockerUiService'];
+    dockerUiPods: kubernetes.IPod [] = [];
 
     constructor(private dockerUiService: DockerUiService) {
         dockerUiService.getPodList().then((data: kubernetes.IPodList) =>  {
@@ -17,16 +17,16 @@ class DockerUiController {
     }
 
     isDockerUiNotRunningOnHost(hostIP: string): boolean {
-        var pods = this.podsByHost(hostIP);
+        var pods: kubernetes.IPod [] = this.podsByHost(hostIP);
         return _.isEmpty(pods);
     }
 
     getDockerUiPodIPByHost(hostIP: string): string {
-        var pods = this.podsByHost(hostIP);
+        var pods: kubernetes.IPod [] = this.podsByHost(hostIP);
         return pods[0].id;
     }
 
-    podsByHost(hostIP) {
-        return _.filter(this.dockerUiPods, (pod:kubernetes.IPod) => pod.currentState.hostIP === hostIP);
+    podsByHost(hostIP: string): kubernetes.IPod [] {
+        return _.filter(this.dockerUiPods, (pod: kubernetes.IPod) => pod.currentState.hostIP === hostIP);
     }
 }

@@ -1,16 +1,21 @@
 /// <reference path="../app.ts"/>
 'use strict';
 
-sextant.directive('images', [(): ng.IDirective => {
-    var directive:ng.IDirective = {};
+class ImagesDirective {
 
-    directive.restrict = 'AE';
-    directive.templateUrl = '/partials/images.html';
-    directive.replace = true;
+    constructor() {
+        var directive: ng.IDirective = {};
 
-    directive.scope = {
-        data: '=data'
-    };
+        directive.restrict = 'AE';
+        directive.templateUrl = '/partials/images.html';
+        directive.replace = true;
 
-    return directive;
-}]);
+        directive.scope = {
+            data: '=data'
+        };
+
+        return directive;
+    }
+}
+
+sextant.directive('images', [ ImagesDirective ]);

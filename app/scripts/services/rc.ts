@@ -6,15 +6,16 @@
 
 interface IReplicationControllerService {
     getReplicationControllerList(): ng.IPromise <kubernetes.IReplicationControllerList>;
+    delete(rc: kubernetes.IReplicationController): ng.IPromise <any>;
     update(rc: kubernetes.IReplicationController): void;
 }
 
 class ReplicationControllerService extends BaseService implements IReplicationControllerService {
+    static $inject: string [] = ['$http', '$q', '$rootScope', 'configuration'];
+
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
-
-    static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
@@ -27,22 +28,35 @@ class ReplicationControllerService extends BaseService implements IReplicationCo
     }
 
     getReplicationControllerList(): ng.IPromise <kubernetes.IReplicationControllerList> {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<kubernetes.IReplicationControllerList> = this.qService.defer();
         this.httpService.get(this.configuration.RC_SERVICE_URL, this.newDefaultRequestConfig())
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: kubernetes.IReplicationControllerList) => deferred.resolve(data))
+            .error((error: any) => {
+                console.log(error);
+            });
+        return deferred.promise;
+    }
+
+    delete(rc: kubernetes.IReplicationController): ng.IPromise <any> {
+        var deferred: ng.IDeferred<any> = this.qService.defer();
+        var config: ng.IRequestShortcutConfig = this.newDefaultRequestConfig();
+        this.httpService.delete(this.configuration.RC_SERVICE_URL + '/' + rc.id, config)
+            .success((data: any) => {
+                deferred.resolve(data);
+            })
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;
     }
 
     update(rc: kubernetes.IReplicationController): void {
-        var config = this.newDefaultRequestConfig();
+        var config: ng.IRequestShortcutConfig = this.newDefaultRequestConfig();
         this.httpService.put(this.configuration.RC_SERVICE_URL + '/' + rc.id, rc, config)
-            .success((data) => {
+            .success((data: kubernetes.IReplicationController) => {
                 console.log(data);
             })
-            .error((error:any) => {
+            .error((error: any) => {
                 console.log(error);
             });
     }

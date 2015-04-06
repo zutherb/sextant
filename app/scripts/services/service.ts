@@ -5,8 +5,9 @@
 'use strict';
 
 interface ILoadBalancerService {
-    getLoadBalancerList(): ng.IPromise <kubernetes.ILoadBalancerList>
-    getLoadBalancer(id: string): ng.IPromise <kubernetes.ILoadBalancer>
+    getLoadBalancerList(): ng.IPromise <kubernetes.ILoadBalancerList>;
+    getLoadBalancer(id: string): ng.IPromise <kubernetes.ILoadBalancer>;
+    delete(loadBalancer: kubernetes.ILoadBalancer): ng.IPromise <any>;
     saveOrUpdate(loadBalancer: kubernetes.ILoadBalancer): void;
 }
 
@@ -16,6 +17,7 @@ class LoadBalancerService extends BaseService implements ILoadBalancerService {
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
+
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
@@ -42,9 +44,17 @@ class LoadBalancerService extends BaseService implements ILoadBalancerService {
         this.httpService.get(this.configuration.LOADBALANCER_SERVICE_URL + '/' + id, this.newDefaultRequestConfig())
             .success((data: kubernetes.ILoadBalancer) => deferred.resolve(data))
             .error((error: any) => {
-                {
-                    console.log(error);
-                }
+                console.log(error);
+            });
+        return deferred.promise;
+    }
+
+    delete(loadBalancer: kubernetes.ILoadBalancer): ng.IPromise <any> {
+        var deferred: ng.IDeferred<kubernetes.ILoadBalancer> = this.qService.defer();
+        this.httpService.delete(this.configuration.LOADBALANCER_SERVICE_URL + '/' + loadBalancer.id, this.newDefaultRequestConfig())
+            .success((data: kubernetes.ILoadBalancer) => deferred.resolve(data))
+            .error((error: any) => {
+                console.log(error);
             });
         return deferred.promise;
     }

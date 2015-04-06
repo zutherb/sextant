@@ -2,8 +2,8 @@
 'use strict';
 
 class ContainersDirective implements ng.IDirective {
-    constructor(){
-        var directive:ng.IDirective = {};
+    constructor() {
+        var directive: ng.IDirective = {};
 
         directive.restrict = 'AE';
         directive.templateUrl = '/partials/containers.html';

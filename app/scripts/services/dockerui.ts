@@ -9,11 +9,11 @@ interface IDockerUiService {
 }
 
 class DockerUiService extends BaseService implements IDockerUiService {
+    static $inject: string [] = ['$http', '$q', '$rootScope', 'configuration'];
+
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
-
-    static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
@@ -26,11 +26,11 @@ class DockerUiService extends BaseService implements IDockerUiService {
     }
 
     getPodList(): ng.IPromise <kubernetes.IPodList> {
-        var deferred = this.qService.defer();
-        var config = this.newDefaultRequestConfig();
+        var deferred: ng.IDeferred<kubernetes.IPodList> = this.qService.defer();
+        var config: ng.IRequestShortcutConfig = this.newDefaultRequestConfig();
         this.httpService.get(this.configuration.DOCKERUI_SERVICE_URL, config)
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: kubernetes.IPodList) => deferred.resolve(data))
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;

@@ -9,11 +9,12 @@ interface IEventService {
 }
 
 class EventService extends BaseService implements IEventService {
+    static $inject: string [] = ['$http', '$q', '$rootScope', 'configuration'];
+
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
 
-    static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
@@ -26,10 +27,10 @@ class EventService extends BaseService implements IEventService {
     }
 
     getEventList(): ng.IPromise <kubernetes.IEventList> {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<kubernetes.IEventList> = this.qService.defer();
         this.httpService.get(this.configuration.EVENT_SERVICE_URL, this.newDefaultRequestConfig())
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: kubernetes.IEventList) => deferred.resolve(data))
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;

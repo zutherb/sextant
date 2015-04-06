@@ -5,12 +5,12 @@
 'use strict';
 
 class FrameController {
+    static $inject: string [] = ['$scope', '$routeParams'];
+
     url: string;
 
-    static $inject = ['$scope', '$routeParams'];
-
-    constructor(private $scope,
-                private $routeParams) {
+    constructor(private $scope: any,
+                private $routeParams: any) {
 
         this.url = $routeParams.url;
 

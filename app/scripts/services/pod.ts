@@ -11,11 +11,11 @@ interface IPodService {
 }
 
 class PodService extends BaseService implements IPodService {
+    static $inject: string [] = ['$http', '$q', '$rootScope', 'configuration'];
+
     private httpService: ng.IHttpService;
     private qService: ng.IQService;
     private rootScope: ng.IScope;
-
-    static $inject = ['$http', '$q', '$rootScope', 'configuration'];
 
     constructor(private $http: ng.IHttpService,
                 private $q: ng.IQService,
@@ -28,30 +28,30 @@ class PodService extends BaseService implements IPodService {
     }
 
     getPods(): ng.IPromise <kubernetes.IPodList> {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<kubernetes.IPodList> = this.qService.defer();
         this.httpService.get(this.configuration.PODS_GET_URL, this.newDefaultRequestConfig())
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: kubernetes.IPodList) => deferred.resolve(data))
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;
     }
 
     getPod(podId: string): ng.IPromise <kubernetes.IPod> {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<kubernetes.IPod> = this.qService.defer();
         this.httpService.get(this.configuration.POD_GET_URL + '/' + podId, this.newDefaultRequestConfig())
-            .success((data:kubernetes.IPod) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: kubernetes.IPod) => deferred.resolve(data))
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;
     }
 
     deletePod(podId: string): ng.IPromise <any> {
-        var deferred = this.qService.defer();
+        var deferred: ng.IDeferred<any> = this.qService.defer();
         this.httpService.delete(this.configuration.POD_DELETE_URL + '/' + podId, this.newDefaultRequestConfig())
-            .success((data) => deferred.resolve(data))
-            .error((error:any) => {
+            .success((data: any) => console.log(data))
+            .error((error: any) => {
                 console.log(error);
             });
         return deferred.promise;

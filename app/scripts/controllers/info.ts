@@ -5,17 +5,17 @@
 'use strict';
 
 class InfoController {
+    static $inject: string [] = ['$scope', '$routeParams', 'infoService', 'configuration'];
+
     info: any;
 
-    static $inject = ['$scope', '$routeParams', 'infoService', 'configuration'];
-
-    constructor(private $scope,
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private infoService: IInfoService,
                 private configuration: sextant.IConfiguration) {
 
         infoService.getBuildInfo().then((data: any) =>  {
-            this.info = data
+            this.info = data;
         });
 
         $scope.vm = this;

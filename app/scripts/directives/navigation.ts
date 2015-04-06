@@ -4,50 +4,55 @@
 
 interface INavigationScope extends ng.IScope {
     items: any;
-    cssClass(hash :string): string;
+    cssClass(hash: string): string;
 }
 
-sextant.directive('navigation', [(): ng.IDirective => {
-    var directive:ng.IDirective = {};
+class NavigationDirective {
 
-    directive.restrict = 'AE';
-    directive.templateUrl = '/partials/navigation.html';
-    directive.replace = true;
+    constructor() {
+        var directive: ng.IDirective = {};
 
-    directive.link = (scope: INavigationScope) => {
-        scope.items = [
-            {
-                name: 'Home',
-                hash: '#/'
-            },
-            {
-                name: 'Minions',
-                hash: '#/minions'
-            },
-            {
-                name: 'Pods',
-                hash: '#/pods'
-            },
-            {
-                name: 'Replication Controller',
-                hash: '#/rc'
-            },
-            {
-                name: 'Services',
-                hash: '#/services'
-            },
-            {
-                name: 'Events',
-                hash: '#/events'
-            }
-        ]
-        scope.cssClass = (hash: string): string => {
-            if(location.hash === hash) {
-                return 'active';
-            }
-            return '';
-        }
-    };
+        directive.restrict = 'AE';
+        directive.templateUrl = '/partials/navigation.html';
+        directive.replace = true;
 
-    return directive;
-}]);
+        directive.link = (scope: INavigationScope) => {
+            scope.items = [
+                {
+                    name: 'Home',
+                    hash: '#/'
+                },
+                {
+                    name: 'Minions',
+                    hash: '#/minions'
+                },
+                {
+                    name: 'Pods',
+                    hash: '#/pods'
+                },
+                {
+                    name: 'Replication Controller',
+                    hash: '#/rc'
+                },
+                {
+                    name: 'Services',
+                    hash: '#/services'
+                },
+                {
+                    name: 'Events',
+                    hash: '#/events'
+                }
+            ];
+            scope.cssClass = (hash: string): string => {
+                if (location.hash === hash) {
+                    return 'active';
+                }
+                return '';
+            };
+        };
+
+        return directive;
+    }
+}
+
+sextant.directive('navigation', [ NavigationDirective ]);

@@ -5,6 +5,8 @@
 'use strict';
 
 class ReplicationControllerListController {
+    static $inject: string [] = ['$scope', '$routeParams', 'rcService', 'configuration'];
+
     rcs: kubernetes.IReplicationController [] = [];
     displayedRcs: kubernetes.IReplicationController [] = [];
 
@@ -12,10 +14,9 @@ class ReplicationControllerListController {
     itemsByPage: number;
     displayedPages: number;
 
-    static $inject = ['$scope', '$routeParams', 'rcService', 'configuration'];
 
-    constructor(private $scope,
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private rcService: IReplicationControllerService,
                 private configuration: sextant.IConfiguration) {
 

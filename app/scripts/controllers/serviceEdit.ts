@@ -5,19 +5,18 @@
 'use strict';
 
 class LoadBalancerEditController {
+    static $inject: string [] = ['$scope', '$routeParams', 'loadBalancerService', 'configuration'];
+
     service: kubernetes.ILoadBalancer;
     isNew: boolean;
 
-    static $inject = ['$scope', '$routeParams', 'loadBalancerService', 'configuration'];
-
-    constructor(private $scope,
-
-                private $routeParams,
+    constructor(private $scope: any,
+                private $routeParams: any,
                 private loadBalancerService: ILoadBalancerService,
                 private configuration: sextant.IConfiguration) {
 
 
-        if(!_.isEmpty($routeParams.serviceid)){
+        if (!_.isEmpty($routeParams.serviceid)) {
             loadBalancerService.getLoadBalancer($routeParams.serviceid).then((data: kubernetes.ILoadBalancer) => {
                 this.service = data;
                 this.isNew = false;

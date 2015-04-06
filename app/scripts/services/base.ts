@@ -14,6 +14,6 @@ class BaseService implements IBaseService {
     newDefaultRequestConfig(): ng.IRequestShortcutConfig {
         return {
             timeout: this.configuration.TIMEOUT
-        }
+        };
     }
 }
