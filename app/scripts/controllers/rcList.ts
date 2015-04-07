@@ -5,7 +5,12 @@
 'use strict';
 
 class ReplicationControllerListController {
-    static $inject: string [] = ['$scope', '$routeParams', 'rcService', 'configuration'];
+    static $inject: string [] = [
+        '$scope',
+        '$routeParams',
+        'rcService',
+        'FileUploader',
+        'configuration'];
 
     rcs: kubernetes.IReplicationController [] = [];
     displayedRcs: kubernetes.IReplicationController [] = [];
@@ -14,11 +19,22 @@ class ReplicationControllerListController {
     itemsByPage: number;
     displayedPages: number;
 
+    uploader: any;
 
     constructor(private $scope: any,
                 private $routeParams: any,
                 private rcService: IReplicationControllerService,
+                private FileUploader: any,
                 private configuration: sextant.IConfiguration) {
+
+        this.uploader = new FileUploader({
+            //url: '/api/kubernetes/replicationControllers'
+            url: '/api/v1beta2/replicationControllers'
+        });
+
+        this.uploader.onAfterAddingFile = (fileItem: any) => { fileItem.upload(); };
+        this.uploader.onCompleteAll = () => { this.updateReplicationControllers(); };
+
 
         this.searchterm = $routeParams.searchterm;
 
@@ -35,14 +51,18 @@ class ReplicationControllerListController {
 
     delete(rc: kubernetes.IReplicationController): void {
         this.rcService.delete(rc).then((data: kubernetes.IReplicationControllerList) =>  {
-            this.rcService.getReplicationControllerList().then((data: kubernetes.IReplicationControllerList) =>  {
-                this.rcs = data.items;
-            });
+            this.updateReplicationControllers();
         });
     }
 
     update(rc: kubernetes.IReplicationController): void {
         this.rcService.update(rc);
+    }
+
+    private updateReplicationControllers(): void {
+        this.rcService.getReplicationControllerList().then((data: kubernetes.IReplicationControllerList) => {
+            this.rcs = data.items;
+        });
     }
 }
 

@@ -9,6 +9,7 @@ var sextant: any = angular.module('sextant', [
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'angularFileUpload',
     'angucomplete-alt',
     'chart.js',
     'smart-table',

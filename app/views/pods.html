@@ -1,69 +1,71 @@
-<h1>Pods</h1>
-<div class="row">
-    <ul class="nav nav-pills pull-left">
-        <li class="dropdown">
-            <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#">Actions <b class="caret"></b></a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#/pod/">New</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="table-responsive">
-    <table st-table="vm.displayedPods" st-safe-src="vm.pods"  class="table table-striped table-hover table-condensed" ng-controller="PodListController">
-        <thead>
-            <tr>
-                <th st-sort="id">POD</th>
-                <th st-sort="currentState.podIP">IP</th>
-                <th>CONTAINER(S)</th>
-                <th>IMAGE(S)</th>
-                <th st-sort="desiredState.host">HOST</th>
-                <th>LABELS</th>
-                <th st-sort="currentState.status">STATUS</th>
-                <th>&nbsp;</th>
-            </tr>
-            <tr>
-                <th colspan="8"><input angucomplete-alt st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="pod in vm.displayedPods">
-                <td>
-                    <a ng-href="/api/kubernetes/proxy/pods/{{pod.id}}" target="_blank">{{pod.id}}</a>
-                </td>
-                <td>{{pod.currentState.podIP}}</td>
-                <td>
-                    <containers data="pod.desiredState.manifest.containers"></containers>
-                </td>
-                <td>
-                    <images data="pod.desiredState.manifest.containers"></images>
-                </td>
-                <td>{{pod.desiredState.host}}/{{pod.currentState.host}}</td>
-                <td><keyvaluelist data="pod.labels"></keyvaluelist></td>
-                <td>{{pod.currentState.status}}</td>
-                <td class="align-right">
-                    <a ng-href="/#/events/{{pod.id}}">
-                        <button class="btn btn-sm" type="button">
-                            <i class="glyphicon glyphicon-eye-open"></i>
+<div class="container">
+    <h1>Pods</h1>
+    <div class="row">
+        <ul class="nav nav-pills pull-left">
+            <li class="dropdown">
+                <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#">Actions <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#/pod/">New</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="table-responsive">
+        <table st-table="vm.displayedPods" st-safe-src="vm.pods"  class="table table-striped table-hover table-condensed" ng-controller="PodListController">
+            <thead>
+                <tr>
+                    <th st-sort="id">POD</th>
+                    <th st-sort="currentState.podIP">IP</th>
+                    <th>CONTAINER(S)</th>
+                    <th>IMAGE(S)</th>
+                    <th st-sort="desiredState.host">HOST</th>
+                    <th>LABELS</th>
+                    <th st-sort="currentState.status">STATUS</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="8"><input angucomplete-alt st-search="" class="form-control" placeholder="global search ..." type="text"/></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pod in vm.displayedPods">
+                    <td>
+                        <a ng-href="/api/kubernetes/proxy/pods/{{pod.id}}" target="_blank">{{pod.id}}</a>
+                    </td>
+                    <td>{{pod.currentState.podIP}}</td>
+                    <td>
+                        <containers data="pod.desiredState.manifest.containers"></containers>
+                    </td>
+                    <td>
+                        <images data="pod.desiredState.manifest.containers"></images>
+                    </td>
+                    <td>{{pod.desiredState.host}}/{{pod.currentState.host}}</td>
+                    <td><keyvaluelist data="pod.labels"></keyvaluelist></td>
+                    <td>{{pod.currentState.status}}</td>
+                    <td class="align-right">
+                        <a ng-href="/#/events/{{pod.id}}">
+                            <button class="btn btn-sm" type="button">
+                                <i class="glyphicon glyphicon-eye-open"></i>
+                            </button>
+                        </a>
+                        <a ng-href="/#/pod/{{pod.id}}">
+                            <button class="btn btn-sm" type="button">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button>
+                        </a>
+                        <button class="btn btn-sm btn-danger" ng-click="vm.delete(pod)" type="button">
+                            <i class="glyphicon glyphicon-trash"></i>
                         </button>
-                    </a>
-                    <a ng-href="/#/pod/{{pod.id}}">
-                        <button class="btn btn-sm" type="button">
-                            <i class="glyphicon glyphicon-pencil"></i>
-                        </button>
-                    </a>
-                    <button class="btn btn-sm btn-danger" ng-click="vm.delete(pod)" type="button">
-                        <i class="glyphicon glyphicon-trash"></i>
-                    </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="8" class="text-center">
+                    <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
                 </td>
             </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-            <td colspan="8" class="text-center">
-                <div st-pagination="" st-items-by-page="vm.itemsByPage" st-displayed-pages="vm.displayedPages"></div>
-            </td>
-        </tr>
-        </tfoot>
-    </table>
+            </tfoot>
+        </table>
+    </div>
 </div>

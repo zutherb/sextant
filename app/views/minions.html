@@ -1,29 +1,31 @@
-<h1>Minions</h1>
-<div class="table-responsive">
-    <table class="table table-striped" ng-controller="MinionListController">
-        <thead>
-        <tr>
-            <th>NAME</th>
-            <th>LABELS</th>
-            <th colspan="2">STATUS</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="minion in vm.minions">
-            <td>{{minion.hostIP}}</td>
-            <td><keyvaluelist data="minion.labels"></keyvaluelist></td>
-            <td>{{minion.status.conditions.0.kind}}</td>
-            <td class="align-right">
-                <a ng-hide="vm.isDockerUiNotRunningOnHost(minion.hostIP)"
-                   ng-href="/#/frame?url=/api/kubernetes/proxy/pods/{{vm.getDockerUiPodIPByHost(minion.hostIP)}}/#/">
-                    <button type="button" class="btn btn-sm" data-toggle="tooltip" data-placement="top"
-                            title="Tooltip on top">
-                        <i class="glyphicon glyphicon-eye-open"></i>
-                    </button>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <h1>Minions</h1>
+    <div class="table-responsive">
+        <table class="table table-striped" ng-controller="MinionListController">
+            <thead>
+            <tr>
+                <th>NAME</th>
+                <th>LABELS</th>
+                <th colspan="2">STATUS</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="minion in vm.minions">
+                <td>{{minion.hostIP}}</td>
+                <td><keyvaluelist data="minion.labels"></keyvaluelist></td>
+                <td>{{minion.status.conditions.0.kind}}</td>
+                <td class="align-right">
+                    <a ng-hide="vm.isDockerUiNotRunningOnHost(minion.hostIP)"
+                       ng-href="/#/frame?url=/api/kubernetes/proxy/pods/{{vm.getDockerUiPodIPByHost(minion.hostIP)}}/#/">
+                        <button type="button" class="btn btn-sm" data-toggle="tooltip" data-placement="top"
+                                title="Tooltip on top">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
