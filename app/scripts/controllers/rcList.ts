@@ -28,7 +28,7 @@ class ReplicationControllerListController {
                 private configuration: sextant.IConfiguration) {
 
         this.uploader = new FileUploader({
-            //url: '/api/kubernetes/replicationControllers'
+            // url: '/api/kubernetes/replicationControllers'
             url: '/api/v1beta2/replicationControllers'
         });
 
